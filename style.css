@@ -1,77 +1,188 @@
-* { user-select: none ;}
+* {
+  user-select: none;
+}
+
+:root {
+  --nns: #fcfc2b;
+  --flagbar: #d46bba;
+}
+
 body {
-    margin: 0;
-    font-family: 'Outfit', sans-serif;
-    background: radial-gradient(circle at center, #1a1a1a, #000);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at center, #19041c, #000);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
 }
-#sayo {color: palevioletred !important}
+
+#sayo {
+  color: #db7093 !important
+}
+
 .profile-img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: url('media/Sayo.png') center/cover no-repeat;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  margin-top: -120px;
+  margin-bottom: 30px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: url('media/Sayo.png') center/cover no-repeat;
+  box-shadow: 0 0 20px rgba(20, 5, 20, 0.2);
+}
+
+.title-brand {
+
+  font-weight: bold;
+}
+
+.title-suffix {
+  font-weight: normal;
+  color: #888;
 }
 
 .dots {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(#ffc107 1px, transparent 1px);
-    background-size: 20px 20px;
-    z-index: -1;
-    opacity: 0.15;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffc107 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -1;
+  opacity: 0.15;
 }
 
 .info {
-    max-width: 400px;
+  max-width: 400px;
 }
 
 h1 {
-    margin: 0;
-    color: #ffc107;
+  margin: 0;
+  color: #db7093;
 }
 
 .title {
-    margin-top: 0.25em;
-    color: #ccc;
-    font-size: 1.2rem;
+  margin-top: 0.25em;
+  color: #ccc;
+  font-size: 1.2rem;
 }
 
 .buttons {
-    margin-top: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+
+.btn {
+  padding: 12px 28px;
+  background: #dda0dd;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #db7093;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .info {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .info h1 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.05rem;
+    color: #ccc;
+    padding: 0 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .buttons {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-}
+    align-items: center;
+  }
 
-.btn {
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
+  .btn {
+    width: 100%;
+    max-width: 280px;
     font-size: 1rem;
-    cursor: pointer;
+    padding: 0.75rem 1rem;
     text-align: center;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-}
+  }
 
-.btn:hover {
-    background: #ffc107;
-    color: #000;
-    border-color: #ffc107;
+  .dots {
+    background-size: 12px 12px;
+    opacity: 0.06;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
 }

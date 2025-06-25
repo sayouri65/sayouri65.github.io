@@ -1,28 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sayouri</title>
-  <link rel="icon" type="image/png" href="media/Sayo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="sayouri" data-description="Support me on Buy me a coffee!" data-message="Would you like to support my work? I'd have coffee :)" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sayo</title>
+    <link rel="icon" type="image/png" href="media/Sayo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link id="stylesheet" rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="sayouri" data-description="Support me on Buy me a coffee!"
+        data-message="Would you like to support my work? I would be very grateful!" data-color="#C154C1"
+        data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </head>
+
 <body>
-  <div class="dots"></div>
-  <div class="container">
-    <div class="profile-img"></div>
-    <div class="info">
-      <h1>Sayouri (Sayo)</h1>
-      <div class="title">Developer</div>
-      <div class="buttons">
-        <button class="btn" onclick="location.href = 'aboutme.html'">About me</button>
-        <button class="btn" onclick="location.href = 'projects.html'">My projects</button>
-        <button class="btn" onclick="location.href = 'contact.html'">Contact</button>
+    <div class="dots"></div> <!-- Background dots, not content, make it stable lol -->
+    <nav class="maininfo">
+        <div class="profile-img" id="imgmainp" style="display: none;"></div>
+        <nav class="info">
+            <div class="profile-img" id="imgsubp"></div>
+            <h1>Sayouri</h1>
+            <div class="title">Junior <span class="title-brand">Web <b>Developer</b> & <b>IT Admin</b></span>istrator
+            </div>
+            <div class="buttons">
+                <button class="btn" onclick="showSection('aboutMe')" id="aboutMeButton">About me</button>
+                <button class="btn" onclick="showSection('projects')" id="projectsButton">My projects</button>
+                <button class="btn" onclick="showSection('contact')" id="contactButton">Contact</button>
+            </div>
+        </nav>
+    </nav>
+    <div class="main-content" id="mainContent">
+        <div class="block" id="aboutMeBlock" style="display: none;">
+            <div class="card">
+                <h1>Hi, I’m <block style="color: #dda0dd;">Sayo</block> 👋</h1>
+                <p>
+                    I’m a <span class="highlight-trans">trans girl</span> and a tech enthusiast passionate about web
+                    development, design, and creating things that reflect me and my interests.
+                    I’m currently a student and work part-time as a cashier. <span class="highlight">I started coding
+                        when I was 12 years old</span> in school, learning Scratch in IT classes, and I’ve been hooked
+                    ever since, picking up a lot along the way.
+                </p>
+                <p>
+                    <span class="highlight">I hold a professional qualification</span> in website, web application, and
+                    database development, having successfully passed the <span class="highlight">EE.08 / INF.02</span>
+                    exam in 2022. I'm continuously striving to expand my skills
+                    and stay up to date with the latest technologies.
+                </p>
+                <p>
+                    When I’m not coding, you’ll probably find me deep in games (yes, I’ve racked up thousands of hours),
+                    running my community, improving my skills, or just hanging out with friends.
+                    <br><span class="highlight">Feel free to check out the “My Projects” tab to learn more about my
+                        work</span> and the projects I’m currently involved in and sharing publicly.
+                </p>
+                <div class="card-footer">
+                    That’s me in a nutshell. Thanks for stopping by 💜
+                </div>
+            </div>
+        </div>
+
+        <div class="block" id="projectsBlocks" style="display: none;">
+            <div class="card" id="cardOfprojectsCard">
+                <h1>My projects?</h1>
+                <h4 style="font-size: 90%;">
+                    Im not part of any big company or organization, so I don't have big popular projects to show off.
+                    But I do have some small projects that I created in my free time or for fun.
+                </h4>
+                <h2 style="color: var(--nns)">NoName Squad</h2>
+                <h3>
+                    Its small discord community that I created in 2019 when I was just 14 years old and develop it until
+                    now, which has grown to almost 100 members so far. Yeah, not much but main invinte link was used
+                    over 900 times, so I hope that memer count will grow in the future.<br>
+                    <br>I also created a website for it, which is not so advanced, but it works and looks good. You can
+                    find it at <a href="https://nnamesquad.top" target="_blank"
+                        style="color: var(--nns);">nnamesquad.top</a> or just join the <a
+                        href="https://discord.nnamesquad.top" target="_blank" style="color: var(--nns);">discord
+                        server</a> yourself and check it out.
+                </h3>
+                <h2 style="color: var(--flagbar);">FlagBar</h2>
+                <h3>
+                    FlagBar is a browser extension that adds colors of LGBT-flags to YouTube, making it more
+                    personalized and visually appealing. It’s a fun little project I’ve been working on, and you can
+                    check it out at <a href="https://flagbar.nnamesquad.top" target="_blank"
+                        style="color: var(--flagbar);">flagbar.nnamesquad.top</a>.
+                    <br>Whant to ask why I created it? Well, I was bored and wanted to do something with my free time,
+                    and this idea come to my mind because of one of my friends who is coneccted with LGBT community and
+                    I wanted to do something for them, but when I started working on it, I realized that it can be
+                    useful for everyone, so I decided to make it public and share it with the world.
+                </h3>
+                <h2 style="color: var(--qty);" hidden>QTY</h2>
+                <h3 hidden>
+                    placeholder for future project, that I may be part of, but for now its just a placeholder
+                </h3>
+                <div class="card-footer">
+                    <p><b>Perhaps more in the future..</b><br>until then, you can support me and buy me a coffee if you
+                        like my work!
+                        <script style="all: initial;" type="text/javascript"
+                            src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button"
+                            data-slug="sayouri" data-color="#C154C1" data-emoji="☕" data-font="Poppins"
+                            data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff"
+                            data-coffee-color="#FFDD00"></script>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="block" id="contactBlock" style="display: none;">
+            <div class="card">
+                <h1 class="discord">Contact</h1>
+                <p style="font-size: larger;">
+                    Discord: <a href="" target="_blank" id="sayo">@sayouri65</a>
+                </p>
+                <p>
+                    Instagram: <a href="https://www.instagram.com/sayvexa/" target="_blank" id="sayo">@sayvexa</a><br>
+                    Email: <a id="sayo" href="mailto:contact@sayouri.dev">contact@sayouri.dev</a>
+                </p>
+                <p class="card-footer">
+                    Short info, I do not reply to emails unless I found it needed and I do not add "random" people on
+                    Instagram so best way to contact me is via Discord.<br>
+                    I will gladly answer any questions you may have, whether it's about my projects, tech-related
+                    issues, or if you just want to chat, I will gladly welcome you on my Discord server.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="block" id="hiremeBlock" style="display: none;">
+            <div class="card">
+                <h1>Small Tech Jobs & Web Projects</h1>
+                <h3>
+                    I’m available for a variety of small tech-related tasks, including website and web app
+                    development,
+                    database setup, IT equipment installation, and general PC assistance. If you need help with a
+                    tech
+                    issue or project, feel free to reach out via email (see the <span>“Contact”</span> tab)—I'll do
+                    my
+                    best to support you.
+                </h3>
+                <h3>
+                    If you're interested in having a website or web application built, I'm open to commissions.
+                    While
+                    I'm not a full-time developer, I hold an official qualification in creating and managing
+                    websites,
+                    web apps, and databases. Pricing is discussed individually, based on the scope and complexity of
+                    your project as well as my current availability.
+                </h3>
+                <h3>
+                    I may not be part of a large development team, but I always aim to deliver quality results at a
+                    fair
+                    price. If you'd like to collaborate, please get in touch with details about your project, and
+                    I’ll
+                    respond as soon as I can.
+                </h3>
+            </div>
+        </div>
     </div>
-  </div>
+    </div>
 </body>
+
 </html>
