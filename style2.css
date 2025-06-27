@@ -202,6 +202,15 @@ h1,
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
+
+.highlight-qty {
+  background: linear-gradient(to right, #d13e36, #f46717, #fac919, #4b963b, #0b5e94, #88468d, #e97c9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+
 .card h1 span {
   display: block;
   font-size: 1.2rem;
