@@ -40,7 +40,8 @@ body {
   font-size: 0.95rem;
   white-space: pre-line;
   margin-bottom: 1rem;
-  line-height: 1.3; /* Slightly tighter line height */
+  line-height: 1.3;
+  /* Slightly tighter line height */
 }
 
 .field {
@@ -56,15 +57,18 @@ body {
 
 .field h4 {
   font-size: 0.9rem;
-  margin-bottom: 0.15rem; /* smaller gap below heading */
+  margin-bottom: 0.15rem;
+  /* smaller gap below heading */
   color: #ccc;
 }
 
 .field p {
   font-size: 0.9rem;
   color: #eee;
-  margin-top: 0; /* Remove default margin top */
-  margin-bottom: 0.8rem; /* add a small margin below for spacing between fields */
+  margin-top: 0;
+  /* Remove default margin top */
+  margin-bottom: 0.8rem;
+  /* add a small margin below for spacing between fields */
 }
 
 .footer {
