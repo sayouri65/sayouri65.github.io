@@ -43,7 +43,8 @@ container.innerHTML = `
   <div class="description">
     • Total: <strong>${totalBoosts}</strong> 🚀<br>
     • Total value: <strong>${value} USD</strong> (4.99$/each)<br>
-    ⚠ If a user deletes or deactivates their account, their statistics will be removed, but their contributions will remain in the total boost count. Personal statistics can be removed upon request; however, this action is irreversible.
+    <span style="color: #ff0000">⚠ If a user deletes or deactivates their account, their statistics will be removed, but their contributions will remain in the total boost count. Personal statistics can be removed upon request; however, this action is irreversible.</span>
+    <span style="color: #ff9900">⚠ Due to technical limitations, we cannot display usernames, only IDs. <b>BUT</b> you can click on the ID to check the user's profile via 3rd party service. This service is not affiliated with us or Discord in any way.</span>
   </div>
 `;
 
@@ -72,7 +73,12 @@ container.innerHTML += `
     <p>${rest}</p>
   </div>
   <div class="footer">
-    We strive to keep these statistics accurate, but since they are updated manually, some errors may occur, which we work to minimize.
+  These statistics are conducted manually, independently of Discord's Boosts counting system on the "Server Boosts"
+    channel, so the data may vary. Boosts "quantity" data counts as the number of their transfer, not the length of
+    their duration (as of 2025, we are trying to increase the number of boost points with their duration accumulation
+    over time). The data may not be 100% accurate by manually moderating it and repeatedly exporting it to a new given
+    base elsewhere, the data is only an analytical curiosity however we try to keep it as accurate as possible. Thank
+    you for your understanding.
   </div>
  <div class="timestamp">${formattedDate}</div>
 `;
