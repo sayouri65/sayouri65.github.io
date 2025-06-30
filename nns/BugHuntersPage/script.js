@@ -1,6 +1,6 @@
 const container = document.getElementById("bh-embed");
 
-const updatetime = "2025-06-30T20:18:00+02:00"; // leave +02:00 for Warsaw timezone
+const updatetime = "2025-06-03T14:12:00+02:00"; // leave +02:00 for Warsaw timezone
 
 const date = new Date(updatetime);
 const formatter = new Intl.DateTimeFormat("pl-PL", {
@@ -26,8 +26,7 @@ const formattedDate = `${day}.${month}.${year} ${hour}:${minute}`;
 // App Testers – always shown, excluded from stats
 const fixedOrder = [
     "448894048586170369",
-    "756482164262043720",
-    "636210705632067586"
+    "756482164262043720"
 ];
 const specialHunters = bghunters.filter(b => fixedOrder.includes(b.id));
 
@@ -112,8 +111,21 @@ groupByBadge(
 );
 
 container.innerHTML += `
-  <div class="footer">
-    These statistics are conducted manually. The data may not be 100% accurate by manually moderating it, the data is only an analytical curiosity however we try to keep it as accurate as possible. Thank you for your understanding.
-  </div>
-  <div class="timestamp">${formattedDate}</div>
+    <div style="font-family: Arial, sans-serif; font-size: 14px; color: #666;">
+    <strong>BugHunter Levels</strong><br>
+        Levels are based on the number of confirmed bugs found by each user. The more bugs you report, the higher your level:<br>
+    <ul style="margin-top: 6px; margin-bottom: 6px; padding-left: 20px; color: #777;">
+        <li><strong>Level 1</strong> – 1 to 4 bugs</li>
+        <li><strong>Level 2</strong> – 5 to 19 bugs</li>
+        <li><strong>Level 3</strong> – 20+ bugs</li>
+    </ul>
+        <span style="display: block; margin-top: 12px">
+            🧪 <strong>App Testers</strong> are not included in these statistics and are listed separately. They are trusted users selected by the server owner to help test internal tools like our apps, bots, and websites.<br>
+            <em>Please note: App Tester status is invite-only and cannot be requested.</em>
+        </span>
+    </div>
+    <div class="footer">
+        These statistics are conducted manually. The data may not be 100% accurate by manually moderating it, the data is only an analytical curiosity however we try to keep it as accurate as possible. Thank you for your understanding.
+    </div>
+    <div class="timestamp">Last update: ${formattedDate}</div>
 `;
