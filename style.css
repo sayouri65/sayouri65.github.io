@@ -31,7 +31,7 @@ body {
 }
 
 #shopButton {
-  display: none;
+  display: none !important;
 }
 
 .profile-img {
