@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NNS Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="container">
-        <h1>Contact Information</h1>
+    <main class="container">
+        <header>
+            <h1>Contact Information</h1>
+        </header>
 
-        <div class="appealinfo">
-            <b>Looking for appeal?</b> Email us at
-            <a href="mailto:appeal@nnamesquad.top">appeal@nnamesquad.top</a> or hit up the form at
+        <section class="appealinfo">
+            <strong>Looking for appeal?</strong> Email us at
+            <a href="mailto:appeal@nnamesquad.top">appeal@nnamesquad.top</a> or use the form at
             <a href="https://appeals.nnamesquad.top/">appeals.nnamesquad.top</a>.
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Main Server Email</h2>
-            <p><a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a></p>
-            <p class="note">This is the only address from which we send official outbound messages.</p>
-        </div>
+        <section>
+            <h2>Server Email & Security Policy</h2>
+            <address>
+                <a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a>
+            </address>
+            <p class="note">If you receive an email from a different address, it is likely fraudulent. Contact us to clarify.</p>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Contact with Representative (CEO / Deputy CEO)</h2>
-            <p><a href="mailto:contact@nnamesquad.top">contact@nnamesquad.top</a></p>
-            <p class="note">For legal, technical, cooperation, and website-related matters.</p>
-        </div>
+        <section>
+            <h2>Contact with Representative (CEO / Deputy CEO)</h2>
+            <address>
+                <a href="mailto:contact@nnamesquad.top">contact@nnamesquad.top</a>
+            </address>
+            <p class="note">For legal, technical, or website-related matters. This email does not handle appeals or support requests.</p>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Staff Email Addresses</h2>
+        <section>
+            <h2>Staff Email Addresses</h2>
             <ul>
-                <li style="font-size: large;">
-                    <a href="mailto:support@nnamesquad.top">support@nnamesquad.top</a> – General messages (sent to all
-                    staff)
+                <li>
+                    <a href="mailto:support@nnamesquad.top">support@nnamesquad.top</a> – General messages (sent to all staff)
                 </li>
                 <li>
-                    <a href="mailto:sayouri@nnamesquad.top">sayouri@nnamesquad.top</a> – Directly to
+                    <a href="mailto:sayo@nnamesquad.top">sayo@nnamesquad.top</a> – Directly to
                     <a href="https://discord.id?prefill=448894048586170369">@sayouri65</a>
+                    <br />
+                    <span class="important" style="color: wheat; font-style: italic;" id="email-change-info-sayo-until-14092025">
+                        - Starting August 1, 2025, the new email address will be <strong>sayo@nnamesquad.top</strong> (previously <strong>sayouri@nnamesquad.top</strong>). After this date, emails sent to <strong>sayouri@nnamesquad.top</strong> will NOT be delivered.
+                    </span>
+                    <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var hideDate = new Date(2025, 8, 14, 12, 0, 0);
+                        if (Date.now() >= hideDate.getTime()) {
+                            var el = document.getElementById("email-change-info-sayo-until-14092025");
+                            if (el) el.style.display = "none";
+                        }
+                    });
+                    </script>
                 </li>
                 <li>
                     <a href="mailto:kirka@nnamesquad.top">kirka@nnamesquad.top</a> – Directly to
@@ -49,87 +65,56 @@
                     <a href="mailto:verciq@nnamesquad.top">verciq@nnamesquad.top</a> – Directly to
                     <a href="https://discord.id?prefill=636210705632067586">@verciq</a>
                 </li>
-                <li><a href="mailto:appeal@nnamesquad.top">appeal@nnamesquad.top</a> – For appeals</li>
+                <li>
+                    <a href="mailto:appeal@nnamesquad.top">appeal@nnamesquad.top</a> – For appeals
+                </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Security Policy</h2>
-            <p>All communication from us will be sent only from
-                <a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a>.
-            </p>
-            <p>If you receive an email claiming to be from us, but from a different address, it is likely fraudulent.
-            </p>
-            <p>
-                ➡️ Forward it immediately to <a
-                    href="mailto:MsgConfirm@nnamesquad.top">MsgConfirm@nnamesquad.top</a><br />
-                ➡️ You'll get a reply within 24 hours confirming authenticity.
-            </p>
-        </div>
-
-        <div class="section">
+        <section>
             <h2>⏱️ Response Times</h2>
-            <p>We aim to respond within the following business day timeframes:</p>
             <ul>
                 <li><strong>Direct contact with administration</strong>: within <strong>3 business days</strong></li>
-                <li><strong>Support email (<code>support@nnamesquad.top</code>)</strong>: within <strong>7 business
-                        days</strong></li>
-                <li><strong>Contact with CEO / Deputy CEO (<code>contact@nnamesquad.top</code>)</strong>: within
-                    <strong>14 business days</strong>
-                </li>
-                <li><strong>Appeals (<code>appeal@nnamesquad.top</code>)</strong>: within <strong>30 business
-                        days</strong></li>
+                <li><strong>Support email (<code>support@nnamesquad.top</code>)</strong>: within <strong>7 business days</strong></li>
+                <li><strong>Contact with CEO / Deputy CEO (<code>contact@nnamesquad.top</code>)</strong>: within <strong>14 business days</strong></li>
+                <li><strong>Appeals (<code>appeal@nnamesquad.top</code>)</strong>: within <strong>30 business days</strong></li>
                 <li><strong>Other or unspecified matters</strong>: up to <strong>30 business days</strong></li>
             </ul>
             <p class="note">
-                ⚠️ Please use the appropriate email address for your request. Messages sent to the wrong department may
-                not receive a reply.
+                ⚠️ Please use the appropriate email address for your request. Messages sent to the wrong department may not receive a reply.
             </p>
-            <p class="note">
+            <div class="note">
                 We reserve the right not to respond to messages that:
-            <ul class="note">
-                <li>Do not require a reply in our judgment</li>
-                <li>Contain spam, offensive content, or are unserious</li>
-                <li>Are sent to incorrect or unofficial addresses</li>
-            </ul>
-            </p>
-        </div>
+                <ul>
+                    <li>Do not require a reply in our judgment</li>
+                    <li>Contain spam, offensive content, or are unserious</li>
+                    <li>Are sent to incorrect or unofficial addresses</li>
+                </ul>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Archiving and Monitoring</h2>
+        <section>
+            <h2>Archiving and Monitoring</h2>
             <ul>
                 <li>All messages are archived with sender address, content, and attachments.</li>
                 <li>No deletion requests will be honored.</li>
                 <li>All emails are monitored for security and spam.</li>
                 <li>Spam or abuse leads to blocking without appeal.</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-title">Privacy and Transparency</h2>
+        <section>
+            <h2>Privacy and Transparency</h2>
             <ul>
-                <li>The server CEO has access to all received emails.</li>
-                <li>Do not treat emails as private messages.</li>
-                <li>Our hosting provider processes inbound mail per their privacy policy.</li>
-                <li>Outgoing messages from <a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a> are fully
-                    secure and private.</li>
+                <li>The server CEO and designated staff have access to all received emails.</li>
+                <li>Emails are not considered private messages; avoid sharing sensitive information.</li>
+                <li>Inbound mail is processed by our hosting provider according to their privacy policy.</li>
+                <li>Outgoing messages from <a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a> are sent securely and treated confidentially.</li>
             </ul>
             <p>We will never contact you from any address other than
                 <a href="mailto:nnamesquad@gmail.com">nnamesquad@gmail.com</a>.
             </p>
-        </div>
-
-        <button class="toggle-theme" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-    </div>
-
-    <script>
-        function toggleTheme() {
-            const isLightOn = document.body.classList.toggle('light-theme');
-            if (isLightOn) {
-                alert("Why you should not use light mode? Because light attracts bugs, so if you sure about it, that's your choice.");
-            }
-        }
-    </script>
+        </section>
+    </main>
 </body>
-
 </html>
