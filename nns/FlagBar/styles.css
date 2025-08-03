@@ -1,4 +1,9 @@
-html, body {
+* {
+  user-select: none;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", sans-serif;
@@ -15,13 +20,18 @@ html, body {
   padding: 1rem;
   font-weight: bold;
   font-size: 1.1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   animation: pulse 2s ease-in-out infinite alternate;
 }
 
 @keyframes pulse {
-  from { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-  to { box-shadow: 0 2px 20px rgba(255,107,107,0.3); }
+  from {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  to {
+    box-shadow: 0 2px 20px rgba(255, 107, 107, 0.3);
+  }
 }
 
 .update-banner a {
@@ -34,25 +44,34 @@ header {
   background: linear-gradient(135deg, #ffd6f5, #e0bbf5);
   padding: 2rem 1rem;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(170,0,127,0.2);
+  box-shadow: 0 4px 20px rgba(170, 0, 127, 0.2);
   position: relative;
   overflow: hidden;
 }
 
 header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 70%);
   animation: shimmer 3s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
 }
 
 header h1 {
@@ -61,7 +80,7 @@ header h1 {
   color: #aa007f;
   position: relative;
   z-index: 1;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header p {
@@ -69,7 +88,7 @@ header p {
   color: #5e005e;
   position: relative;
   z-index: 1;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -80,18 +99,18 @@ main {
 
 section {
   margin-bottom: 2.5rem;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 h2 {
@@ -114,7 +133,7 @@ a.button {
   transition: all 0.3s ease;
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 4px 15px rgba(170,0,127,0.3);
+  box-shadow: 0 4px 15px rgba(170, 0, 127, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -122,17 +141,20 @@ a.button {
 a.button:hover {
   background: linear-gradient(135deg, #d4009d, #ff1aaa);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(170,0,127,0.4);
+  box-shadow: 0 6px 20px rgba(170, 0, 127, 0.4);
 }
 
 a.button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.5s;
 }
 
@@ -152,8 +174,10 @@ a.button:hover::before {
   opacity: 1;
 }
 
-.chrome-button, .firefox-button, .opera-button {
-  border: 1px solid rgba(0,0,0,0.1);
+.chrome-button,
+.firefox-button,
+.opera-button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
   display: inline-block;
   margin: 0.45rem;
   padding: 0.7rem 1.4rem;
@@ -164,14 +188,15 @@ a.button:hover::before {
   font-weight: bold;
   cursor: default;
   transition: all 0.3s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: visible;
 }
 
-.chrome-button:hover, .firefox-button:hover {
+.chrome-button:hover,
+.firefox-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .new-version-badge {
@@ -185,14 +210,21 @@ a.button:hover::before {
   border-radius: 15px;
   font-weight: bold;
   animation: bounce 2s ease-in-out infinite;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
   z-index: 15;
   white-space: nowrap;
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 footer {
@@ -201,7 +233,7 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #444;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   margin-top: 3rem;
 }
 
@@ -224,59 +256,100 @@ a.button[disabled] {
   pointer-events: none;
 }
 
-.chrome-button[disabled], .firefox-button[disabled], .opera-button[disabled] {
-  background: #ccc !important; 
+.chrome-button[disabled],
+.firefox-button[disabled],
+.opera-button[disabled] {
+  background: #ccc !important;
   color: #666 !important;
   cursor: not-allowed !important;
   pointer-events: none !important;
 }
 
 #btn-trans {
-  background: linear-gradient(to bottom, #5bcefa, #f5a9b8, white, #f5a9b8, #5bcefa);
+  background: linear-gradient(to bottom,
+      #5bcefa,
+      #f5a9b8,
+      white,
+      #f5a9b8,
+      #5bcefa);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-lesbi {
-  background: linear-gradient(to bottom, #d52d00, #ff9a56, white, #d362a4, #a30262);
+  background: linear-gradient(to bottom,
+      #d52d00,
+      #ff9a56,
+      white,
+      #d362a4,
+      #a30262);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-pride {
-  background: linear-gradient(to bottom, red, orange, yellow, green, blue, purple);
+  background: linear-gradient(to bottom,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      purple);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-bisex {
-  background: linear-gradient(to bottom, #d60270, #d60270, #9b4f96, #0038a8, #0038a8);
+  background: linear-gradient(to bottom,
+      #d60270,
+      #d60270,
+      #9b4f96,
+      #0038a8,
+      #0038a8);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-nonbi {
   background: linear-gradient(to bottom, #fff433, white, #9b59d0, #2d2d2d);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-inter {
-  background: radial-gradient(circle, yellow, yellow, purple, yellow, yellow, yellow, yellow, yellow, yellow, yellow, yellow);
+  background: radial-gradient(circle,
+      yellow,
+      yellow,
+      purple,
+      yellow,
+      yellow,
+      yellow,
+      yellow,
+      yellow,
+      yellow,
+      yellow,
+      yellow);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 #btn-asexu {
   background: linear-gradient(to bottom, black, #a3a3a3, white, #800080);
   color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px  1px 0 white, 1px  1px 0 white;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
 /* Support button styling */
 .support-button {
   display: inline-block;
-  background: linear-gradient(135deg, #FFDD00, #FFB700);
+  background: linear-gradient(135deg, #ffdd00, #ffb700);
   color: #000;
   text-decoration: none;
   padding: 0.8rem 1.5rem;
@@ -285,13 +358,13 @@ a.button[disabled] {
   font-size: 1rem;
   box-shadow: 0 4px 15px rgba(255, 221, 0, 0.3);
   transition: all 0.3s ease;
-  border: 2px solid #FFB700;
+  border: 2px solid #ffb700;
 }
 
 .support-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 221, 0, 0.4);
-  background: linear-gradient(135deg, #FFE55C, #FFDD00);
+  background: linear-gradient(135deg, #ffe55c, #ffdd00);
 }
 
 /* Privacy page specific styles */
@@ -320,7 +393,7 @@ a.button[disabled] {
 }
 
 .privacy-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -430,21 +503,21 @@ a.button[disabled] {
   .privacy-page {
     padding: 1rem 0.5rem;
   }
-  
+
   .privacy-container {
     padding: 2rem 1.5rem;
     border-radius: 15px;
   }
-  
+
   .privacy-container h1 {
     font-size: 2rem;
   }
-  
+
   .privacy-container p {
     font-size: 1rem;
     text-align: left;
   }
-  
+
   .back-to-home .button {
     padding: 0.7rem 1.5rem;
     font-size: 0.95rem;
@@ -452,18 +525,39 @@ a.button[disabled] {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInText {
-  from { opacity: 0; transform: translateX(-10px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .fade-in-text {
@@ -488,7 +582,7 @@ a.button[disabled] {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(170,0,127,0.3);
+  box-shadow: 0 2px 8px rgba(170, 0, 127, 0.3);
   position: relative;
   overflow: hidden;
   font-family: inherit;
@@ -497,22 +591,25 @@ a.button[disabled] {
 .lang-button:hover {
   background: linear-gradient(135deg, #d4009d, #ff1aaa);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(170,0,127,0.4);
+  box-shadow: 0 4px 12px rgba(170, 0, 127, 0.4);
 }
 
 .lang-button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(170,0,127,0.3);
+  box-shadow: 0 2px 6px rgba(170, 0, 127, 0.3);
 }
 
 .lang-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.4s;
 }
 
