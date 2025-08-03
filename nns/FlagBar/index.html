@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlagBar — Personalize YouTube with pride</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="update-banner">
+    🎉 <strong>NEW:</strong> FlagBar v1.2.0 is here! Now all flags in ONE extension with a convenient menu!
+    <a href="https://chromewebstore.google.com/detail/dnaibeddepbilcfjnhcjbppmbbngeopf" target="_blank">Get it now</a>
+    (Currently under review by Google team) | ⚠️ Requires reinstallation
+  </div>
+
+  <header>
+    <h1>FlagBar</h1>
+    <p lang="pl">Rozszerzenie przeglądarkowe, które dodaje kolory Twojej tożsamości do YouTube</p>
+    <p lang="en">A browser extension that adds your identity colors to YouTube</p>
+    <p lang="cz">Rozšíření, které přidá barvy tvé totožnosti na YouTube</p>
+    <p style="font-size: x-small;"><button onclick="langPL()">PL</button><button onclick="langENG()">ENG</button><button
+        onclick="langCZ()">CZ</button></p>
+  </header>
+
+  <main>
+    <section lang="pl">
+      <h2>🎨 Czym jest FlagBar?</h2>
+      <p><strong>FlagBar</strong> to lekkie, estetyczne rozszerzenie, które subtelnie personalizuje interfejs YouTube za
+        pomocą kolorów Twojej flagi — np. trans, lesbijskiej, biseksualnej, nonbinary, pan, ace i wielu innych. A oto co
+        posiada nasze rozszerzenie:</p>
+      <ul>
+        <li>🎥 Pasek postępu filmu w kolorach flagi</li>
+        <li>⚙️ <strong>NOWOŚĆ v1.2.0:</strong> Wszystkie flagi w jednym rozszerzeniu z kompaktowym menu!</li>
+        <p><em>Pozostałe opcje są w fazie planowania i będą dodawane w kolejnych wersjach
+            rozszerzenia.</em></br><strong>W planach mamy:</strong></p>
+        <li><em>✨ Poświaty pod przyciskami i tooltipy.</em></li>
+        <li><em>💼 Tryb Kino w barwach flagi.</em></li>
+        <li><em>💬 Mini emoji-reakcje.</em></li>
+      </ul>
+    </section>
+
+    <section lang="en">
+      <h2>🎨 What is FlagBar?</h2>
+      <p><strong>FlagBar</strong> is a lightweight, aesthetically pleasing extension that subtly personalizes the
+        YouTube interface with the colors of your flag - such as trans, lesbian, bisexual, nonbinary, pan, ace and many
+        others. And here's what our extension has:</p>
+      <ul>
+        <li>🎥 Film progress bar in the colors of the flag</li>
+        <li>⚙️ <strong>NEW v1.2.0:</strong> All flags in one extension with a compact menu!</li>
+        <p><em>Other options are in the planning stages and will be added in future versions of the
+            extension.</em></br><strong>We're planning to add:</strong></p>
+        <li><em>✨ Glows under buttons and tooltips.</em></li>
+        <li><em>💼 Cinema Mode in the colors of the flag.</em></li>
+        <li><em>💬 Mini emoji reactions.</em></li>
+      </ul>
+    </section>
+
+    <section lang="cz">
+      <h2>🎨 Co je to FlagBar?</h2>
+      <p><strong>FlagBar</strong> je lehké, estetické rozšíření, které jemně přizpůsobí rozhraní YouTube s pomocí barev
+        tvojí vlajky- Jako například Trans, Lesbická, Bisexuální, Nebinární, Pan, Ace, a dalších. A tady je to, co naše
+        rozhraní dokáže:</p>
+      <ul>
+        <li>🎥 Pásek postupu filmu v barvách vlajky.</li>
+        <li>⚙️ <strong>NOVÉ v1.2.0:</strong> Všechny vlajky v jednom rozšíření s kompaktním menu!</li>
+        <p><em>Další nastavení je stádium plánování a budou přidané v dalších verzích tohohle
+            rozšíření:</em></br><strong>Plánujeme přidat:</strong></p>
+        <li><em>✨ Svit pod tlačítky a tooltipy.</em></li>
+        <li><em>💼 Režim kina v barvách vlajky.</em></li>
+        <li><em>💬 Mini emoji reakce.</em></li>
+      </ul>
+    </section>
+
+    <section>
+      <div lang="pl">
+        <h2>🚀 Pobierz FlagBar</h2>
+        <p style="font-weight: bolder;">Rozszerzenie jest dostępne w najpopularniejszych przeglądarkach.</br>
+          <i style="color: salmon;"><strong>Wersja dla Opera jest w fazie rozwoju jednakże możesz używać rozszerzeń
+              wersji Chrome.</strong></i>
+        </p>
+        </p>
+      </div>
+      <div lang="en">
+        <h2>🚀 Download FlagBar</h2>
+        <p style="font-weight: bolder;">The extension is available in the most popular browsers.</br>
+          <i style="color: salmon;"><strong>The version for Opera is under development however you can use the
+              extensions of the Chrome version.</strong></i>
+        </p>
+      </div>
+      <div lang="cz">
+        <h2>🚀 Stáhnout FlagBar</h2>
+        <p style="font-weight: bolder;">Naše rozšíření je dostupné v nejznámějších vyhledávačích.</br>
+          <i style="color: salmon;"><strong>Verze pro Operu je ve vývoji, můžete však používat rozšíření verze pro
+              Chrome.</strong></i>
+        </p>
+      </div>
+      <a class="button" onclick="toggleSection('chrome-section')">Chrome</a>
+      <a class="button" onclick="toggleSection('firefox-section')">Firefox</a>
+      <a class="button" onclick="toggleSection('opera-section')" disabled>Opera (coming soon)</a>
+      <div id="chrome-section" class="platform-section">
+        <div>
+          <div
+            style="text-align: center; margin-bottom: 1rem; padding: 1rem; background: linear-gradient(135deg, #e8f5e8, #f0f8ff); border-radius: 10px; border-left: 4px solid #4ecdc4;">
+            <h3 style="color: #2c5530; margin: 0 0 0.5rem 0;">🆕 FlagBar v1.2.0 - All-in-One Extension</h3>
+            <p style="margin: 0; color: #2c5530;"><strong>One extension, all flags!</strong> Switch between flags easily
+              with the new menu system.</p>
+            <a href="https://chromewebstore.google.com/detail/dnaibeddepbilcfjnhcjbppmbbngeopf" class="chrome-button"
+              style="position: relative; background: linear-gradient(135deg, #4ecdc4, #44b3a6); margin-top: 1.2rem;">
+              FlagBar v1.2.0 (All Flags)
+              <span class="new-version-badge">NEW!</span>
+            </a>
+            <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;"><em>⚠️ Currently under review by Google
+                team • Requires reinstallation from old versions</em></p>
+          </div>
+
+          <div
+            style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f8f4ff, #fff0f8); border-radius: 15px; border: 1px solid rgba(170,0,127,0.1);">
+            <h3 style="color: #aa007f; margin: 0 0 1rem 0; font-size: 1.2rem;">📊 Legacy Extensions Statistics</h3>
+
+            <div
+              style="text-align: center; margin: 1rem 0; padding: 1rem; background: rgba(255,200,200,0.6); border-radius: 10px; border: 2px solid #ff4444;">
+              <p style="margin: 0; font-weight: bold; color: #cc0000;">🚫 UWAGA: Od publikacji FlagBar v1.2.0 wszystkie
+                pojedyncze rozszerzenia Legacy zostały wycofane i nie są już dostępne do pobrania.</p>
+            </div>
+
+
+            <div
+              style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+              <div
+                style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #5bcefa;">
+                <div style="font-weight: bold; color: #5bcefa; margin-bottom: 0.5rem;">🏳️‍⚧️ Transgender</div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">54</span> instalacji<br>
+                  <span style="font-weight: bold;">4.47k</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #d52d00;">
+                <div style="font-weight: bold; color: #d52d00; margin-bottom: 0.5rem;">🧡 Lesbian</div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">101</span> instalacji<br>
+                  <span style="font-weight: bold;">2.04k</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #ff0000;">
+                <div style="font-weight: bold; color: #ff0000; margin-bottom: 0.5rem;">🌈 Pride</div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">68</span> instalacji<br>
+                  <span style="font-weight: bold;">4.49k</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,240,240,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #d60270; opacity: 0.8;">
+                <div style="font-weight: bold; color: #d60270; margin-bottom: 0.5rem;">💜 Bisexual <span
+                    style="font-size: 0.7rem; color: #999;">(wycofane)</span></div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">53</span> instalacji<br>
+                  <span style="font-weight: bold;">1.54k</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,240,240,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #800080; opacity: 0.8;">
+                <div style="font-weight: bold; color: #800080; margin-bottom: 0.5rem;">🖤 Ace <span
+                    style="font-size: 0.7rem; color: #999;">(wycofane)</span></div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">2</span> instalacji<br>
+                  <span style="font-weight: bold;">33</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,240,240,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #ffda00; opacity: 0.8;">
+                <div style="font-weight: bold; color: #b8860b; margin-bottom: 0.5rem;">💛 Intersex <span
+                    style="font-size: 0.7rem; color: #999;">(wycofane)</span></div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">1</span> instalacji<br>
+                  <span style="font-weight: bold;">16</span> wyświetleń
+                </div>
+              </div>
+
+              <div
+                style="background: rgba(255,240,240,0.8); padding: 1rem; border-radius: 10px; border-left: 4px solid #fff433; opacity: 0.8;">
+                <div style="font-weight: bold; color: #9b59d0; margin-bottom: 0.5rem;">💛 Nonbinary <span
+                    style="font-size: 0.7rem; color: #999;">(wycofane)</span></div>
+                <div style="font-size: 0.9rem; color: #666;">
+                  <span style="font-weight: bold;">2</span> instalacji<br>
+                  <span style="font-weight: bold;">39</span> wyświetleń
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="padding: 1rem; background: linear-gradient(135deg, #aa007f, #d4009d); color: white; border-radius: 10px; font-weight: bold;">
+              🎉 Łącznie: <span style="font-size: 1.2rem;">281 instalacji</span> • <span
+                style="font-size: 1.2rem;">12.6k+</span> wyświetleń
+            </div>
+          </div>
+          <div
+            style="background: rgba(255,236,236,0.8); padding: 1rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b6b;">
+            <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; color: #cc0000;"><strong>ℹ️ Uwaga:</strong> Rozszerzenia
+              Bisexual, Ace, Intersex i Nonbinary zostały wycofane z publikacji przez Google krótko po ich dodaniu,
+              przez co miały znacznie mniej użytkowników niż mogłyby mieć.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="firefox-section" class="platform-section">
+        <div>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-trans/" id="btn-trans"
+            class="firefox-button">Transgender</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-lesbian/" id="btn-lesbi"
+            class="firefox-button">Lesbian</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-pride/" id="btn-pride"
+            class="firefox-button">Pride</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-bisexual/" id="btn-bisex"
+            class="firefox-button">Bisexual</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-nonbinary/" id="btn-nonbi"
+            class="firefox-button">Nonbinary</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-intersex/" id="btn-inter"
+            class="firefox-button">Intersex</a>
+          <a href="https://addons.mozilla.org/pl/firefox/addon/flagbar-ace/" id="btn-asexu"
+            class="firefox-button">Ace</a>
+        </div>
+      </div>
+
+      <div id="opera-section" class="platform-section">
+        <div>
+          <a id="btn-trans" class="opera-button" disabled>Transgender</a>
+          <a id="btn-lesbi" class="opera-button" disabled>Lesbian</a>
+          <a id="btn-pride" class="opera-button" disabled>Pride</a>
+          <a id="btn-bisex" class="opera-button" disabled>Bisexual</a>
+          <a id="btn-nonbi" class="opera-button" disabled>Nonbinary</a>
+          <a id="btn-inter" class="opera-button" disabled>Intersex</a>
+          <a id="btn-asexu" class="opera-button" disabled>Ace</a>
+        </div>
+      </div>
+    </section>
+
+    <section lang="pl">
+      <h2>💖 Wesprzyj projekt</h2>
+      <p>Ten projekt powstał z potrzeby widoczności i akceptacji — tworzony przez osobę queer, z myślą o queer
+        społecznościach. Jeśli chcesz wesprzeć rozwój FlagBar, możesz:</p>
+      <ul>
+        <li>🌟 Wystawić recenzję w sklepie z rozszerzeniami.</li>
+        <li>📢 Podzielić się z innymi — <strong>#FlagBar</strong> na social media!</li>
+      </ul>
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <a href="https://www.buymeacoffee.com/sayouri" target="_blank" class="support-button">
+          ☕ Buy me a coffee!
+        </a>
+      </div>
+    </section>
+    <section lang="en">
+      <h2>💖 Support the project</h2>
+      <p>This project was born out of a need for visibility and acceptance - created by a queer person, with queer
+        communities in mind. If you want to support the development of FlagBar, you can:</p>
+      <ul>
+        <li>🌟 Write a review on the expansion shop.</li>
+        <li>📢 Share with others - <strong>#FlagBar</strong> on social media!</li>
+      </ul>
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <a href="https://www.buymeacoffee.com/sayouri" target="_blank" class="support-button">
+          ☕ Buy me a coffee!
+        </a>
+      </div>
+    </section>
+    <section lang="cz">
+      <h2>💖 Podpoř projekt</h2>
+      <p>Tenhle projekt byl zrozen s potřeby viditelnosti a přijetí- vytvořen queer člověkem, s queer komunitami na
+        mysli.</br>Jestli chceš podpořit vývoj FlagBar, můžeš:</p>
+      <ul>
+        <li>🌟 Napsat recenzi v obchodě rozšíření.</li>
+        <li>📢 Sdílet s jinými- <strong>#FlagBar</strong> na sociálních sítích!</li>
+      </ul>
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <a href="https://www.buymeacoffee.com/sayouri" target="_blank" class="support-button">
+          ☕ Buy me a coffee!
+        </a>
+      </div>
+    </section>
+
+    <section lang="pl">
+      <h2>💬 Masz opinię, sugestię albo znalazłeś błąd?</h2>
+      <p>Twoje zdanie się liczy! Podziel się nim na Discordzie:</p>
+      <a href="https://discord.nnamesquad.top" class="button">Dołącz do NoName Squad</a>
+    </section>
+    <section lang="en">
+      <h2>💬 Do you have an opinion, suggestion or have you found an error?</h2>
+      <p>Your feedback counts! Share it on Discord:</p>
+      <a href="https://discord.nnamesquad.top" class="button">Join the NoName Squad</a>
+    </section>
+    <section lang="cz">
+      <h2>💬 Máš názor, návrh, nebo si našel chybu?</h2>
+      <p>Tvoje zpětná vazba je důležitá! Sdílej ji na Discordu:</p>
+      <a href="https://discord.nnamesquad.top" class="button">Přidej se do NoName Squad</a>
+    </section>
+  </main>
+
+  <footer lang="pl">
+    <p>© 2025 FlagBar. Wszelkie prawa zastrzeżone. | Stworzone przez Sayouri & Czogista</p>
+    <p><a href="https://nnamesquad.top/flagbar/privacy" class="privacy-link">Polityka Prywatności</a> | <a href="https://discord.nnamesquad.top"
+        class="privacy-link">Discord</a></p>
+  </footer>
+  <footer lang="en">
+    <p>© 2025 FlagBar. All rights reserved. | Created by Sayouri & Czogista</p>
+    <p><a href="https://nnamesquad.top/flagbar/privacy" class="privacy-link">Privacy Policy</a> | <a href="https://discord.nnamesquad.top"
+        class="privacy-link">Discord</a></p>
+  </footer>
+  <footer lang="cz">
+    <p>© 2025 FlagBar. Všechna práva vyhrazena. | Vytvořili Sayouri & Czogista</br><i style="font-weight: lighter;">Za
+        překlad do tohoto jazyka vděčíme: <strong>@mel_x.</strong></i></p>
+    <p><a href="https://nnamesquad.top/flagbar/privacy" class="privacy-link">Zásady ochrany osobních údajů</a> | <a
+        href="https://discord.nnamesquad.top" class="privacy-link">Discord</a></p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { langENG(); });
+
+    function toggleSection(id) {
+      const sections = document.querySelectorAll('[id$="-section"]'); // Pobieramy wszystkie elementy z id kończącym się na "-section"
+      sections.forEach(section => {
+        if (section.id !== id) {
+          section.classList.remove("active"); // Usuwamy klasę "active" z innych sekcji
+        }
+      });
+      const selectedSection = document.getElementById(id);
+      selectedSection.classList.toggle("active"); // Przełączamy klasę "active" dla wybranej sekcji
+    }
+
+
+
+    function langPL() {
+      // Pokaż wszystkie z lang="PL"
+      document.querySelectorAll('[lang="PL"]').forEach(el => {
+        el.style.display = "";
+      });
+      // Ukryj wszystkie z innymi językami (np. EN, DE itd.)
+      document.querySelectorAll('[lang]:not([lang="PL"])').forEach(el => {
+        el.style.display = "none";
+      });
+    }
+
+    function langENG() {
+      document.querySelectorAll('[lang="EN"]').forEach(el => {
+        el.style.display = "";
+      });
+      document.querySelectorAll('[lang]:not([lang="EN"])').forEach(el => {
+        el.style.display = "none";
+      });
+    }
+
+    function langCZ() {
+      document.querySelectorAll('[lang="CZ"]').forEach(el => {
+        el.style.display = "";
+      });
+      document.querySelectorAll('[lang]:not([lang="CZ"])').forEach(el => {
+        el.style.display = "none";
+      });
+    }
+  </script>
+
+</body>
+
+</html>
