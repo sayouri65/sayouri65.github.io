@@ -37,7 +37,7 @@ visibleBoosters.sort((a, b) => b.boosts - a.boosts);
 container.innerHTML = `
   <div class="author">
     <img src="https://cdn.discordapp.com/icons/643524342923264012/51e88caf85161b8c1222c17d181272e8.png" alt="icon">
-    <a href="https://discord.nnamesquad.top/"><strong>NoName Squad 🙊</strong></a>
+    <a target="_blank" target="_blank" href="https://discord.nnamesquad.top/"><strong>NoName Squad 🙊</strong></a>
   </div>
   <div class="title">🔮 History of boosters 🔮</div>
   <div class="description">
@@ -55,7 +55,7 @@ for (let i = 0; i < 3 && i < visibleBoosters.length; i++) {
   container.innerHTML += `
     <div class="field">
       <h4>${medal} TOP ${i + 1}</h4>
-      <p><a href="https://discord.id/?prefill=${booster.id}">@${booster.id}</a> - <strong>${booster.boosts}</strong> 🚀</p>
+      <p><a target="_blank" target="_blank" href="https://discord.id/?prefill=${booster.id}">@${booster.id}</a> - <strong>${booster.boosts}</strong> 🚀</p>
     </div>
   `;
 }
@@ -64,7 +64,7 @@ for (let i = 0; i < 3 && i < visibleBoosters.length; i++) {
 let rest = "";
 for (let i = 3; i < visibleBoosters.length; i++) {
   const booster = visibleBoosters[i];
-  rest += `${i + 1}. <a href="https://discord.id/?prefill=${booster.id}">@${booster.id}</a> - <strong>${booster.boosts}</strong> 🚀<br>`;
+  rest += `${i + 1}. <a target="_blank" target="_blank" href="https://discord.id/?prefill=${booster.id}">@${booster.id}</a> - <strong>${booster.boosts}</strong> 🚀<br>`;
 }
 
 container.innerHTML += `

@@ -40,7 +40,7 @@ const totalBugs = visibleHunters.reduce((sum, b) => sum + b.bugs, 0);
 container.innerHTML = `
   <div class="author">
     <img src="https://cdn.discordapp.com/icons/643524342923264012/51e88caf85161b8c1222c17d181272e8.png" alt="icon">
-    <a href="https://discord.nnamesquad.top/"><strong>NoName Squad 🙊</strong></a>
+    <a target="_blank" href="https://discord.nnamesquad.top/"><strong>NoName Squad 🙊</strong></a>
   </div>
   <div class="title">👾 BugHunters 👾</div>
   <div class="description">
@@ -56,7 +56,7 @@ if (specialHunters.length > 0) {
     for (const id of fixedOrder) {
         const hunter = specialHunters.find(h => h.id === id);
         if (!hunter) continue;
-        html += `<a href="https://discord.id/?prefill=${hunter.id}">@${hunter.id}</a><br>`;
+        html += `<a target="_blank" href="https://discord.id/?prefill=${hunter.id}">@${hunter.id}</a><br>`;
     }
     container.innerHTML += `
     <div class="field">
@@ -72,7 +72,7 @@ function groupByBadge(hunters, min, max, icon, alt, label, width = 18, height = 
     if (group.length === 0) return;
     let html = "";
     for (const h of group) {
-        html += `<a href="https://discord.id/?prefill=${h.id}">@${h.id}</a> – <strong>${h.bugs}</strong> 👾<br>`;
+        html += `<a target="_blank" href="https://discord.id/?prefill=${h.id}">@${h.id}</a> – <strong>${h.bugs}</strong> 👾<br>`;
     }
     container.innerHTML += `
     <div class="field">
