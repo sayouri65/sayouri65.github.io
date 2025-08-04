@@ -14,13 +14,10 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  /* Change from row layout */
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  /* Replace height: 100vh */
   height: auto;
-  /* Ensure height grows */
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -186,7 +183,6 @@ h1,
   color: #fff;
   text-align: center;
   margin: 0 auto;
-  /* <-- KEY: centers block inside flex container */
 }
 
 
@@ -196,6 +192,7 @@ h1,
   color: palevioletred;
   margin-top: -1rem;
 }
+
 .card .highlight-trans {
   background: linear-gradient(to right, #5bcffa, #f5abb9, #ffffff, #f5abb9, #5bcffa);
   -webkit-background-clip: text;
@@ -253,8 +250,40 @@ h1,
   color: #ffffff !important;
 }
 
+.lizard-floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #2c2f33;
+  border: none;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lizard-floating-btn:hover {
+  background-color: #36393f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.lizard-floating-btn:active {
+  transform: scale(0.95);
+}
+
 @media (max-width: 1024px) {
-  #bmc-wbtn {display: none !important;}
+  #bmc-wbtn {
+    display: none !important;
+  }
+
   body {
     display: flex;
     flex-direction: column;
@@ -416,5 +445,9 @@ h1,
     top: 0;
     left: 0;
     z-index: -1;
+  }
+
+  .lizard-floating-btn {
+    visibility: hidden;
   }
 }

@@ -18,7 +18,8 @@
 </head>
 
 <body>
-    <div class="dots"></div> <!-- Background dots, not content, make it stable lol -->
+    <div class="dots"></div>
+    <button class="lizard-floating-btn" onclick="clickLizard()" id="lizardButton">🦎</button>
     <nav class="maininfo">
         <div class="profile-img" id="imgmainp" style="display: none;"></div>
         <nav class="info">
@@ -30,7 +31,8 @@
                 <button class="btn" onclick="showSection('aboutMe')" id="aboutMeButton">About me</button>
                 <button class="btn" onclick="showSection('projects')" id="projectsButton">My projects</button>
                 <button class="btn" onclick="showSection('contact')" id="contactButton">Contact</button>
-                <button class="btn" onclick="window.location.href=`https://sayouri.dev/shop/index.html`" id="shopButton">Shop</button>
+                <button class="btn" onclick="window.location.href=`https://sayouri.dev/shop/index.html`"
+                    id="shopButton">Shop</button>
             </div>
         </nav>
     </nav>
@@ -94,74 +96,83 @@
                 </h3>
                 <h2><span class="highlight-qty">QTY</span></h2>
                 <h3>
-                    QTY (<span class="highlight-qty">Queer & Trans Youth</span>) is a safe and inclusive space for LGBTQIA+ youth, focused on acceptance, solidarity, and sharing our stories. It aims to build community, support mental well-being, and help young queer people explore and embrace their identities.
-                    <span style="color: #dda0dd;">I’ve been part of the Action Team for Ostrava</span> and the Moravian-Silesian region since June 2025, helping and/or organize <span style="color: #dda0dd;">events like meetups as casual park gatherings</span>, and/or other community activities that bring queer youth together.
-                    If you’re interested in learning more, you can visit the official website at <a href="https://qty.cz" target="_blank" class="highlight-qty" style="text-decoration: underline #dda0dd 1px;"">qty.cz</a>.
+                    QTY (<span class="highlight-qty">Queer & Trans Youth</span>) is a safe and inclusive space for
+                    LGBTQIA+ youth, focused on acceptance, solidarity, and sharing our stories. It aims to build
+                    community, support mental well-being, and help young queer people explore and embrace their
+                    identities.
+                    <span style="color: #dda0dd;">I’ve been part of the Action Team for Ostrava</span> and the
+                    Moravian-Silesian region since June 2025, helping and/or organize <span
+                        style="color: #dda0dd;">events like meetups as casual park gatherings</span>, and/or other
+                    community activities that bring queer youth together.
+                    If you’re interested in learning more, you can visit the official website at <a
+                        href="https://qty.cz" target="_blank" class="highlight-qty"
+                        style="text-decoration: underline #dda0dd 1px;"">qty.cz</a>.
                 </h3>
-                <div class="card-footer">
-                    <p><b>Perhaps more in the future..</b><br>until then, you can support me and buy me a coffee if you
-                        like my work!
-                        <script style="all: initial;" type="text/javascript"
-                            src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button"
-                            data-slug="sayouri" data-color="#C154C1" data-emoji="☕" data-font="Poppins"
-                            data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff"
-                            data-coffee-color="#FFDD00"></script>
-                    </p>
-                </div>
+                <div class=" card-footer">
+                        <p><b>Perhaps more in the future..</b><br>until then, you can support me and buy me a coffee if
+                            you
+                            like my work!
+                            <script style="all: initial;" type="text/javascript"
+                                src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button"
+                                data-slug="sayouri" data-color="#C154C1" data-emoji="☕" data-font="Poppins"
+                                data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff"
+                                data-coffee-color="#FFDD00"></script>
+                        </p>
             </div>
         </div>
+    </div>
 
 
 
-        <div class="block" id="contactBlock" style="display: none;">
-            <div class="card">
-                <h1 class="discord">Contact</h1>
-                <p style="font-size: larger;">
-                    Discord: <a href="" target="_blank" id="sayo">@sayouri65</a>
-                </p>
-                <p>
-                    Instagram: <a href="https://www.instagram.com/sayvexa/" target="_blank" id="sayo">@sayvexa</a><br>
-                    Email: <a id="sayo" href="mailto:contact@sayouri.dev">contact@sayouri.dev</a>
-                </p>
-                <p class="card-footer">
-                    Short info, I do not reply to emails unless I found it needed and I do not add "random" people on
-                    Instagram so best way to contact me is via Discord.<br>
-                    I will gladly answer any questions you may have, whether it's about my projects, tech-related
-                    issues, or if you just want to chat, I will gladly welcome you on my Discord server.
-                </p>
-            </div>
+    <div class="block" id="contactBlock" style="display: none;">
+        <div class="card">
+            <h1 class="discord">Contact</h1>
+            <p style="font-size: larger;">
+                Discord: <a href="" target="_blank" id="sayo">@sayouri65</a>
+            </p>
+            <p>
+                Instagram: <a href="https://www.instagram.com/sayvexa/" target="_blank" id="sayo">@sayvexa</a><br>
+                Email: <a id="sayo" href="mailto:contact@sayouri.dev">contact@sayouri.dev</a>
+            </p>
+            <p class="card-footer">
+                Short info, I do not reply to emails unless I found it needed and I do not add "random" people on
+                Instagram so best way to contact me is via Discord.<br>
+                I will gladly answer any questions you may have, whether it's about my projects, tech-related
+                issues, or if you just want to chat, I will gladly welcome you on my Discord server.
+            </p>
         </div>
+    </div>
 
 
-        <div class="block" id="hiremeBlock" style="display: none;">
-            <div class="card">
-                <h1>Small Tech Jobs & Web Projects</h1>
-                <h3>
-                    I’m available for a variety of small tech-related tasks, including website and web app
-                    development,
-                    database setup, IT equipment installation, and general PC assistance. If you need help with a
-                    tech
-                    issue or project, feel free to reach out via email (see the <span>“Contact”</span> tab)—I'll do
-                    my
-                    best to support you.
-                </h3>
-                <h3>
-                    If you're interested in having a website or web application built, I'm open to commissions.
-                    While
-                    I'm not a full-time developer, I hold an official qualification in creating and managing
-                    websites,
-                    web apps, and databases. Pricing is discussed individually, based on the scope and complexity of
-                    your project as well as my current availability.
-                </h3>
-                <h3>
-                    I may not be part of a large development team, but I always aim to deliver quality results at a
-                    fair
-                    price. If you'd like to collaborate, please get in touch with details about your project, and
-                    I’ll
-                    respond as soon as I can.
-                </h3>
-            </div>
+    <div class="block" id="hiremeBlock" style="display: none;">
+        <div class="card">
+            <h1>Small Tech Jobs & Web Projects</h1>
+            <h3>
+                I’m available for a variety of small tech-related tasks, including website and web app
+                development,
+                database setup, IT equipment installation, and general PC assistance. If you need help with a
+                tech
+                issue or project, feel free to reach out via email (see the <span>“Contact”</span> tab)—I'll do
+                my
+                best to support you.
+            </h3>
+            <h3>
+                If you're interested in having a website or web application built, I'm open to commissions.
+                While
+                I'm not a full-time developer, I hold an official qualification in creating and managing
+                websites,
+                web apps, and databases. Pricing is discussed individually, based on the scope and complexity of
+                your project as well as my current availability.
+            </h3>
+            <h3>
+                I may not be part of a large development team, but I always aim to deliver quality results at a
+                fair
+                price. If you'd like to collaborate, please get in touch with details about your project, and
+                I’ll
+                respond as soon as I can.
+            </h3>
         </div>
+    </div>
     </div>
     </div>
 </body>

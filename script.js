@@ -4,6 +4,28 @@ if (performance.navigation.type === 1) {
 }
 
 var style = document.getElementById("stylesheet");
+
+function playLizardSound() {
+    try {
+        const audio = new Audio('https://www.sayouri.dev/nns/media/lizard.wav');
+        audio.volume = 1;
+        audio.play();
+    } catch (e) {
+        console.log('Audio playback failed:', e);
+    }
+}
+
+function clickLizard() {
+    playLizardSound();
+    const button = document.getElementById('lizardButton');
+    if (button) {
+        button.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
+    }
+}
+
 function showSection(section) {
     const sections = [
         { name: "aboutMe", block: "aboutMeBlock", button: "aboutMeButton" },
@@ -27,3 +49,10 @@ function showSection(section) {
     });
     style.setAttribute("href", "style2.css");
 }
+document.addEventListener('DOMContentLoaded', function () {
+
+    const lizardButton = document.getElementById('lizardButton');
+    if (lizardButton) {
+        lizardButton.style.transition = 'transform 0.15s ease';
+    }
+});
