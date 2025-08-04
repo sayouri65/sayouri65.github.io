@@ -197,6 +197,7 @@ a.button:hover::before {
 .firefox-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .new-version-badge {
