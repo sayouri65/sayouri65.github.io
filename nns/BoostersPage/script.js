@@ -1,7 +1,5 @@
 const container = document.getElementById("boost-embed");
 
-const updatetime = "2025-07-17T19:00:00+02:00"; // your timestamp string from file (leave +02:00 for Warsaw timezone)
-
 const date = new Date(updatetime);
 const formatter = new Intl.DateTimeFormat('pl-PL', {
   timeZone: 'Europe/Warsaw',

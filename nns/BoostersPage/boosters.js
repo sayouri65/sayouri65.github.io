@@ -7,10 +7,10 @@ const boosters = [
   { id: "429661571019571200", boosts: 6 },
   { id: "439828776659058688", boosts: 4 },
   { id: "637972039332003841", boosts: 4 },
+  { id: "817810005255258142", boosts: 3 },
   { id: "762262927477964800", boosts: 2 },
   { id: "376320713101148163", boosts: 2 },
   { id: "636210705632067586", boosts: 2 },
-  { id: "817810005255258142", boosts: 2 },
   { id: "1142127344862122125", boosts: 2 },
   { id: "794910561891647498", boosts: 1 },
   { id: "613661919676596225", boosts: 1 },
@@ -18,3 +18,5 @@ const boosters = [
   { id: "478496812811026433", boosts: 1 },
   { id: "0", boosts: 3 }, // Users waho deleted their account or asked to remove their stats
 ];
+
+const updatetime = "2025-08-26T14:08:00+02:00"; // your timestamp string from file (leave +02:00 for Warsaw timezone)
