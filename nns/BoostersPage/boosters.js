@@ -1,5 +1,5 @@
 const boosters = [
-  { id: "448894048586170369", boosts: 34 },
+  { id: "448894048586170369", boosts: 36 },
   { id: "756482164262043720", boosts: 27 },
   { id: "239932087925342209", boosts: 10 },
   { id: "692026308049240074", boosts: 10 },
@@ -19,4 +19,4 @@ const boosters = [
   { id: "0", boosts: 3 }, // Users waho deleted their account or asked to remove their stats
 ];
 
-const updatetime = "2025-08-26T14:08:00+02:00"; // your timestamp string from file (leave +02:00 for Warsaw timezone)
+const updatetime = "2025-09-06T14:49:00+02:00"; // your timestamp string from file (leave +02:00 for Warsaw timezone)
