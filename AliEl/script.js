@@ -1,351 +1,265 @@
 // Mobile menu toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+function closeMenu() {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("active");
+  body.style.overflow = "";
+}
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+  body.style.overflow = navMenu.classList.contains("active") ? "hidden" : "";
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+// Close mobile menu events
+document
+  .querySelectorAll(".nav-link")
+  .forEach((n) => n.addEventListener("click", closeMenu));
+document.addEventListener("click", (e) => {
+  if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) closeMenu();
+});
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 768) closeMenu();
+});
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 });
 
-// Header background change on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(20, 20, 20, 0.98)';
-    } else {
-        header.style.background = 'rgba(20, 20, 20, 0.95)';
-    }
+// Header background and scroll effects
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  header.style.background =
+    window.scrollY > 100 ? "rgba(20, 20, 20, 0.98)" : "rgba(20, 20, 20, 0.95)";
+
+  // Parallax effect for hero section
+  const parallax = document.querySelector(".hero-bg");
+  if (parallax) {
+    const speed = window.innerWidth <= 768 ? 0.2 : 0.5;
+    parallax.style.transform = `translateY(${window.pageYOffset * speed}px)`;
+  }
 });
 
 // Animate elements on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
     });
-}, observerOptions);
+  },
+  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+);
 
-// Apply animation to elements
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .contact-method, .about-text, .about-image');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
+// Gallery and contact interactions
+document.querySelectorAll(".gallery-item").forEach((item) => {
+  let isTouch = false;
 
-// Gallery lightbox effect (simple implementation)
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-        // Simple zoom effect
-        item.style.transform = item.style.transform === 'scale(1.1)' ? 'scale(1)' : 'scale(1.1)';
-    });
-});
-
-// Contact form validation and phone number formatting
-const phoneNumber = '123123123';
-
-// Update phone links with proper formatting
-document.addEventListener('DOMContentLoaded', () => {
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(link => {
-        link.setAttribute('href', `tel:+48${phoneNumber}`);
-    });
-    
-    const smsLinks = document.querySelectorAll('a[href^="sms:"]');
-    smsLinks.forEach(link => {
-        link.setAttribute('href', `sms:+48${phoneNumber}`);
-    });
-});
-
-// Add subtle parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero-bg');
-    const speed = scrolled * 0.5;
-    
-    if (parallax) {
-        parallax.style.transform = `translateY(${speed}px)`;
+  item.addEventListener("touchstart", () => (isTouch = true));
+  item.addEventListener("click", (e) => {
+    if (isTouch) {
+      e.preventDefault();
+      setTimeout(() => (isTouch = false), 300);
     }
+    item.style.transform =
+      item.style.transform === "scale(1.05)" ? "scale(1)" : "scale(1.05)";
+
+    if (navigator.vibrate && window.innerWidth <= 768) navigator.vibrate(50);
+  });
+
+  if ("ontouchstart" in window) {
+    item.addEventListener("touchstart", () => (item.style.opacity = "0.8"));
+    item.addEventListener("touchend", () => (item.style.opacity = "1"));
+  }
 });
 
-// Add typing effect to hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
+// Phone number setup
+const phoneNumber = "530071218";
+
+// Contact button confirmations
+document.querySelectorAll(".contact-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const isPhone = btn.classList.contains("phone-btn");
+    const isSMS = btn.classList.contains("sms-btn");
+    const message = isPhone
+      ? "Czy chcesz zadzwonić do AliEl - Szalone nożyczki?"
+      : isSMS
+      ? "Czy chcesz wysłać SMS do AliEl - Szalone nożyczki?"
+      : null;
+
+    if (message && !confirm(message)) e.preventDefault();
+  });
+});
+
+// Polish holidays check
+function isPolishHoliday(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const fixedHolidays = [
+    [1, 1],
+    [1, 6],
+    [5, 1],
+    [5, 3],
+    [8, 15],
+    [11, 1],
+    [11, 11],
+    [12, 25],
+    [12, 26],
+  ];
+
+  if (fixedHolidays.some(([m, d]) => m === month && d === day)) return true;
+
+  // Easter calculation
+  const a = year % 19;
+  const b = Math.floor(year / 100);
+  const c = year % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const n = Math.floor((h + l - 7 * m + 114) / 31);
+  const p = (h + l - 7 * m + 114) % 31;
+
+  const easter = new Date(year, n - 1, p + 1);
+  const easterDates = [
+    easter,
+    new Date(easter.getTime() + 86400000), // Easter Monday
+    new Date(easter.getTime() + 49 * 86400000), // Pentecost
+    new Date(easter.getTime() + 60 * 86400000), // Corpus Christi
+  ];
+
+  return easterDates.some(
+    (d) => month === d.getMonth() + 1 && day === d.getDate()
+  );
 }
 
-// Initialize typing effect on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            // Don't override the existing content, just add the effect class
-            heroTitle.classList.add('typing-complete');
-        }, 2000);
-    }
-});
-
-// Add floating animation to social buttons
-document.querySelectorAll('.social-btn').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-        btn.style.animation = 'float 1s ease-in-out infinite';
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        btn.style.animation = '';
-    });
-});
-
-// CSS for floating animation (added via JavaScript)
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        0%, 100% { transform: translateY(-2px); }
-        50% { transform: translateY(-6px); }
-    }
-`;
-document.head.appendChild(style);
-
-// Add click-to-call functionality with confirmation
-document.querySelectorAll('.contact-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        if (btn.classList.contains('phone-btn')) {
-            const confirmCall = confirm('Czy chcesz zadzwonić do AliEl - Szalone nożyczki?');
-            if (!confirmCall) {
-                e.preventDefault();
-            }
-        } else if (btn.classList.contains('sms-btn')) {
-            const confirmSMS = confirm('Czy chcesz wysłać SMS do AliEl - Szalone nożyczki?');
-            if (!confirmSMS) {
-                e.preventDefault();
-            }
-        }
-    });
-});
-
-// Add current time check for business hours
+// Business hours logic
 function checkBusinessHours() {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const isBusinessHours = currentHour >= 10 && currentHour < 16;
-    
-    const contactButtons = document.querySelector('.contact-buttons');
-    const phoneBtn = document.querySelector('.phone-btn');
-    const smsBtn = document.querySelector('.sms-btn');
-    const infoWH = document.querySelector('.info-note-workhinfo');
-    
-    // Find parent wrappers
-    let phoneWrapper = null;
-    let smsWrapper = null;
-    
-    if (phoneBtn) {
-        phoneWrapper = phoneBtn.closest('.contact-button-wrapper');
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentDay = now.getDay();
+
+  let isBusinessHours;
+  if (isPolishHoliday(now)) {
+    isBusinessHours = currentHour >= 10 && currentHour < 14;
+  } else if (currentDay === 0 || currentDay === 6) {
+    isBusinessHours = currentHour >= 9 && currentHour < 17;
+  } else {
+    isBusinessHours = currentHour >= 8 && currentHour < 20;
+  }
+
+  const phoneWrapper = document
+    .querySelector(".phone-btn")
+    ?.closest(".contact-button-wrapper");
+  const smsWrapper = document
+    .querySelector(".sms-btn")
+    ?.closest(".contact-button-wrapper");
+  const contactButtons = document.querySelector(".contact-buttons");
+  const phoneBtn = document.querySelector(".phone-btn");
+  const infoWH = document.querySelector(".info-note-workhinfo");
+
+  if (phoneWrapper && smsWrapper && phoneBtn) {
+    phoneWrapper.style.display = isBusinessHours ? "block" : "none";
+    smsWrapper.style.display = "block";
+    if (contactButtons) contactButtons.style.justifyContent = "center";
+    if (infoWH) infoWH.style.display = isBusinessHours ? "none" : "block";
+
+    if (isBusinessHours) {
+      phoneBtn.style.background = "linear-gradient(45deg, #28a745, #20c997)";
+      phoneBtn.innerHTML =
+        '<i class="fas fa-phone-alt"></i><span>Zadzwoń teraz - DOSTĘPNY!</span>';
+    } else {
+      phoneBtn.style.background = "";
+      phoneBtn.innerHTML =
+        '<i class="fas fa-phone-alt"></i><span>530 071 218</span>';
     }
-    
-    if (smsBtn) {
-        smsWrapper = smsBtn.closest('.contact-button-wrapper');
-    }
-    
-    if (contactButtons && phoneWrapper && smsWrapper) {
-        if (isBusinessHours) {
-            // Show both buttons side by side
-            phoneWrapper.style.display = 'block';
-            smsWrapper.style.display = 'block';
-            contactButtons.style.justifyContent = 'center';
-            infoWH.style.display = 'none';
-            
-            // Update phone button to show availability
-            phoneBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
-            phoneBtn.innerHTML = '<i class="fas fa-phone-alt"></i><span>Zadzwoń teraz!</span>';
-        } else {
-            // Hide phone button, show only SMS in center
-            phoneWrapper.style.display = 'none';
-            smsWrapper.style.display = 'block';
-            contactButtons.style.justifyContent = 'center';
-            
-            // Reset phone button style for when it becomes visible again
-            phoneBtn.style.background = '';
-            phoneBtn.innerHTML = '<i class="fas fa-phone-alt"></i><span>Zadzwoń teraz</span>';
-        }
-    }
+  }
 }
 
 // Check business hours on page load and every minute
-document.addEventListener('DOMContentLoaded', checkBusinessHours);
+document.addEventListener("DOMContentLoaded", checkBusinessHours);
 setInterval(checkBusinessHours, 60000); // Check every minute
 
-// Add Easter egg - dragon animation on logo click
+// Easter egg - dragon animation
 let clickCount = 0;
-const logo = document.querySelector('.logo');
+document.querySelector(".logo").addEventListener("click", () => {
+  if (++clickCount === 5) {
+    const dragon = document.createElement("div");
+    dragon.innerHTML = "🐲";
+    dragon.style.cssText = `
+      position: fixed; font-size: 3rem; z-index: 9999; pointer-events: none;
+      left: -100px; top: 50%; animation: dragonFly 3s ease-in-out forwards;
+    `;
+    document.body.appendChild(dragon);
 
-logo.addEventListener('click', () => {
-    clickCount++;
-    if (clickCount === 5) {
-        // Create dragon effect
-        const dragon = document.createElement('div');
-        dragon.innerHTML = '🐲';
-        dragon.style.cssText = `
-            position: fixed;
-            font-size: 3rem;
-            z-index: 9999;
-            pointer-events: none;
-            left: -100px;
-            top: 50%;
-            animation: dragonFly 3s ease-in-out forwards;
-        `;
-        
-        document.body.appendChild(dragon);
-        
-        // Add dragon flight animation
-        const dragonStyle = document.createElement('style');
-        dragonStyle.textContent = `
-            @keyframes dragonFly {
-                0% { 
-                    left: -100px;
-                    transform: rotate(0deg) scale(1);
-                }
-                50% { 
-                    left: 50vw;
-                    transform: rotate(360deg) scale(1.5);
-                }
-                100% { 
-                    left: calc(100vw + 100px);
-                    transform: rotate(720deg) scale(1);
-                }
-            }
-        `;
-        document.head.appendChild(dragonStyle);
-        
-        setTimeout(() => {
-            dragon.remove();
-            dragonStyle.remove();
-        }, 3000);
-        
-        clickCount = 0;
-    }
-});
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes dragonFly {
+        0% { left: -100px; transform: rotate(0deg) scale(1); }
+        50% { left: 50vw; transform: rotate(360deg) scale(1.5); }
+        100% { left: calc(100vw + 100px); transform: rotate(720deg) scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
 
-// Add service card hover effects with more details
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const price = card.querySelector('.price');
-        if (price && !card.classList.contains('special')) {
-            const originalText = price.textContent;
-            price.dataset.originalText = originalText;
-            price.textContent = 'Zadzwoń bądź napisz, aby dowiedzieć się więcej';
-            price.style.fontSize = '0.9rem';
-        }
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        const price = card.querySelector('.price');
-        if (price && price.dataset.originalText) {
-            price.textContent = price.dataset.originalText;
-            price.style.fontSize = '1.5rem';
-        }
-    });
-});
-
-// Add scroll-to-top button
-const scrollToTopBtn = document.createElement('button');
-scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-scrollToTopBtn.className = 'scroll-to-top';
-scrollToTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: #d4af37;
-    color: #2c1810;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-`;
-
-document.body.appendChild(scrollToTopBtn);
-
-// Show/hide scroll to top button
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollToTopBtn.style.opacity = '1';
-        scrollToTopBtn.style.visibility = 'visible';
-    } else {
-        scrollToTopBtn.style.opacity = '0';
-        scrollToTopBtn.style.visibility = 'hidden';
-    }
-});
-
-// Scroll to top functionality
-scrollToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.3s ease';
-    
     setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
+      dragon.remove();
+      style.remove();
+    }, 3000);
+    clickCount = 0;
+  }
+});
+
+// Scroll-to-top button
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.querySelector(".scroll-to-top")) return;
+
+  const scrollBtn = document.createElement("button");
+  scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  scrollBtn.className = "scroll-to-top";
+  scrollBtn.setAttribute("aria-label", "Przewiń do góry");
+  document.body.appendChild(scrollBtn);
+
+  window.addEventListener("scroll", () => {
+    scrollBtn.classList.toggle("visible", window.pageYOffset > 300);
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+// Initialize business hours check
+checkBusinessHours();
+setInterval(checkBusinessHours, 60000);
+
+// Page loading animation
+window.addEventListener("load", () => {
+  document.body.style.cssText = "opacity: 0; transition: opacity 0.3s ease;";
+  setTimeout(() => (document.body.style.opacity = "1"), 100);
 });
 
 // Set current year
-document.addEventListener('DOMContentLoaded', () => {
-    const currentYear = new Date().getFullYear();
-    const yearElements = document.querySelectorAll('#current-year');
-    yearElements.forEach(element => {
-        element.textContent = currentYear;
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#current-year").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
 });
