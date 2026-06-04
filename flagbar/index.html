@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -32,9 +32,8 @@
 
 <body>
 
-  <div class="update-banner">
-    🎉 <strong>NEW:</strong> FlagBar v1.2.0 is here! Now all flags in ONE extension with a convenient menu! • ⚠️
-    Requires reinstallation
+  <div class="update-banner" hidden>
+    🎉 <strong>UPDATE:</strong> {INFO}
   </div>
 
   <header>
@@ -43,62 +42,65 @@
     <p lang="en">A browser extension that adds your identity colors to YouTube</p>
     <p lang="cz">Rozšíření, které přidá barvy tvé totožnosti na YouTube</p>
     <div class="language-selector">
-      <button class="lang-button" onclick="langPL()">PL</button>
-      <button class="lang-button" onclick="langENG()">ENG</button>
-      <button class="lang-button" onclick="langCZ()">CZ</button>
+      <button class="lang-button" data-lang="pl" onclick="langPL()">PL</button>
+      <button class="lang-button" data-lang="en" onclick="langENG()">ENG</button>
+      <button class="lang-button" data-lang="cz" onclick="langCZ()">CZ</button>
     </div>
   </header>
 
   <main>
-    <section lang="pl">
+    <section class="reveal" lang="pl">
       <h2>🎨 Czym jest FlagBar?</h2>
       <p><strong>FlagBar</strong> to lekkie, estetyczne rozszerzenie, które subtelnie personalizuje interfejs YouTube za
         pomocą kolorów Twojej flagi — np. trans, lesbijskiej, biseksualnej, nonbinary, pan, ace i wielu innych. A oto co
         posiada nasze rozszerzenie:</p>
       <ul>
         <li>🎥 Pasek postępu filmu w kolorach flagi</li>
-        <li>⚙️ <strong>NOWOŚĆ v1.2.0:</strong> Wszystkie flagi w jednym rozszerzeniu z kompaktowym menu!</li>
-        <p><em>Pozostałe opcje są w fazie planowania i będą dodawane w kolejnych wersjach
-            rozszerzenia.</em></br><strong>W planach mamy:</strong></p>
-        <li><em>✨ Poświaty pod przyciskami i tooltipy.</em></li>
-        <li><em>💼 Tryb Kino w barwach flagi.</em></li>
-        <li><em>💬 Mini emoji-reakcje.</em></li>
+        <li>⚙️ Wszystkie flagi w jednym rozszerzeniu z kompaktowym menu!</li>
+        <section hidden>
+          <p><em>Pozostałe opcje są w fazie planowania i będą dodawane w kolejnych wersjach rozszerzenia.</em><br><strong>W planach mamy:</strong></p>
+          <li><em>✨ Poświaty pod przyciskami i tooltipy.</em></li>
+          <li><em>💼 Tryb Kino w barwach flagi.</em></li>
+          <li><em>💬 Mini emoji-reakcje.</em></li>
+        </section>
       </ul>
     </section>
 
-    <section lang="en">
+    <section class="reveal" lang="en">
       <h2>🎨 What is FlagBar?</h2>
       <p><strong>FlagBar</strong> is a lightweight, aesthetically pleasing extension that subtly personalizes the
         YouTube interface with the colors of your flag - such as trans, lesbian, bisexual, nonbinary, pan, ace and many
         others. And here's what our extension has:</p>
       <ul>
         <li>🎥 Film progress bar in the colors of the flag</li>
-        <li>⚙️ <strong>NEW v1.2.0:</strong> All flags in one extension with a compact menu!</li>
-        <p><em>Other options are in the planning stages and will be added in future versions of the
-            extension.</em></br><strong>We're planning to add:</strong></p>
-        <li><em>✨ Glows under buttons and tooltips.</em></li>
-        <li><em>💼 Cinema Mode in the colors of the flag.</em></li>
-        <li><em>💬 Mini emoji reactions.</em></li>
+        <li>⚙️ All flags in one extension with a compact menu!</li>
+        <section hidden>
+          <p><em>Other options are in the planning stages and will be added in future versions of the extension.</em><br><strong>We're planning to add:</strong></p>
+          <li><em>✨ Glows under buttons and tooltips.</em></li>
+          <li><em>💼 Cinema Mode in the colors of the flag.</em></li>
+          <li><em>💬 Mini emoji reactions.</em></li>
+        </section>
       </ul>
     </section>
 
-    <section lang="cz">
+    <section class="reveal" lang="cz">
       <h2>🎨 Co je to FlagBar?</h2>
       <p><strong>FlagBar</strong> je lehké, estetické rozšíření, které jemně přizpůsobí rozhraní YouTube s pomocí barev
         tvojí vlajky- Jako například Trans, Lesbická, Bisexuální, Nebinární, Pan, Ace, a dalších. A tady je to, co naše
         rozhraní dokáže:</p>
       <ul>
         <li>🎥 Pásek postupu filmu v barvách vlajky.</li>
-        <li>⚙️ <strong>NOVÉ v1.2.0:</strong> Všechny vlajky v jednom rozšíření s kompaktním menu!</li>
-        <p><em>Další nastavení je stádium plánování a budou přidané v dalších verzích tohohle
-            rozšíření:</em></br><strong>Plánujeme přidat:</strong></p>
-        <li><em>✨ Svit pod tlačítky a tooltipy.</em></li>
-        <li><em>💼 Režim kina v barvách vlajky.</em></li>
-        <li><em>💬 Mini emoji reakce.</em></li>
+        <li>⚙️ Všechny vlajky v jednom rozšíření s kompaktním menu!</li>
+        <section hidden>
+          <p><em>Další nastavení je stádium plánování a budou přidané v dalších verzích tohohle rozšíření:</em><br><strong>Plánujeme přidat:</strong></p>
+          <li><em>✨ Svit pod tlačítky a tooltipy.</em></li>
+          <li><em>💼 Režim kina v barvách vlajky.</em></li>
+          <li><em>💬 Mini emoji reakce.</em></li>
+        </section>
       </ul>
     </section>
 
-    <section>
+    <section class="reveal">
       <div lang="pl">
         <h2>🚀 Pobierz FlagBar</h2>
       </div>
@@ -108,184 +110,182 @@
       <div lang="cz">
         <h2>🚀 Stáhnout FlagBar</h2>
       </div>
-      <a class="button" onclick="toggleSection('chrome-section');">Chrome Web Store</a>
-      <a class="button" onclick="toggleSection('firefox-section');">Firefox Addons</a>
+
+      <div class="cta-row">
+        <a class="button" onclick="toggleSection('chrome-section', this)">Chrome Web Store</a>
+        <a class="button" onclick="toggleSection('firefox-section', this)">Firefox Addons</a>
+      </div>
+
       <div id="chrome-section" class="platform-section">
-        <div>
-          <div
-            style="text-align: center; margin-bottom: 1rem; padding: 1rem; background: linear-gradient(135deg, #e8f5e8, #f0f8ff); border-radius: 10px; border-left: 4px solid #4ecdc4;">
-            <h3 style="color: #2c5530; margin: 0 0 0.5rem 0;">🆕 FlagBar v1.2.0 - All-in-One Extension</h3>
-            <p style="margin: 0; color: #2c5530;"><strong>One extension, all flags!</strong> Switch between flags easily
-              with the new menu system.</p>
-            <a target="_blank"
-              href="https://chromewebstore.google.com/detail/dnaibeddepbilcfjnhcjbppmbbngeopf?utm_source=flagbar-website"
-              class="chrome-button" rel="noopener"
-              style="position: relative; background: linear-gradient(135deg, #4ecdc4, #44b3a6); margin-top: 1.2rem;">
-              FlagBar v1.2.0 (All Flags)
-              <span class="new-version-badge">NEW!</span>
-            </a>
-            <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;"><em>⚠️ Requires reinstallation from old
-                versions</em></p>
-          </div>
+        <div class="store-card">
+          <h3>⚙️ Version: 1.2.0</h3>
+          <a target="_blank" href="https://chromewebstore.google.com/detail/dnaibeddepbilcfjnhcjbppmbbngeopf?utm_source=flagbar-website"
+            class="chrome-button" rel="noopener">
+            Go to store page
+            <span class="new-version-badge" hidden>NEW!</span>
+          </a>
+          <p><strong>All flags in one extension!</strong> Easily switch between flags using the compact menu.</p>
+          <p class="note-text" hidden><em>⚠️ Requires reinstallation from old versions</em></p>
         </div>
       </div>
 
       <div id="firefox-section" class="platform-section">
-        <div>
-          <div
-            style="text-align: center; margin-bottom: 1rem; padding: 1rem; background: linear-gradient(135deg, #e8f5e8, #f0f8ff); border-radius: 10px; border-left: 4px solid #4ecdc4;">
-            <h3 style="color: #2c5530; margin: 0 0 0.5rem 0;">🆕 FlagBar v1.2.0 - All-in-One Extension</h3>
-            <p style="margin: 0; color: #2c5530;"><strong>One extension, all flags!</strong> Switch between flags easily
-              with the new menu system.</p>
-            <a target="_blank" href="https://addons.mozilla.org/pl/firefox/addon/flagbar/" class="chrome-button"
-              rel="noopener"
-              style="position: relative; background: linear-gradient(135deg, #4ecdc4, #44b3a6); margin-top: 1.2rem;">
-              FlagBar v1.2.0 (All Flags)
-              <span class="new-version-badge">NEW!</span>
-            </a>
-            <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0 0 0;"><em>⚠️ Requires reinstallation from old
-                versions</em></p>
-          </div>
+        <div class="store-card">
+          <h3>⚙️ Version: 1.2.0</h3>
+          <a target="_blank" href="https://addons.mozilla.org/pl/firefox/addon/flagbar/" class="chrome-button" rel="noopener">
+            Go to store page
+            <span class="new-version-badge" hidden>NEW!</span>
+          </a>
+          <p><strong>All flags in one extension!</strong> Easily switch between flags using the compact menu.</p>
+          <p class="note-text" hidden><em>⚠️ Requires reinstallation from old versions</em></p>
         </div>
+      </div>
     </section>
 
-    <section lang="pl">
+    <section class="reveal" lang="pl">
       <h2>💖 Wesprzyj projekt</h2>
       <p>Ten projekt powstał z potrzeby widoczności i akceptacji — tworzony przez osobę queer, z myślą o queer
         społecznościach. Jeśli chcesz wesprzeć rozwój FlagBar, możesz:</p>
       <ul>
         <li>🌟 Wystawić recenzję w sklepie z rozszerzeniami.</li>
-        <li>📢 Podzielić się z innymi — <strong>#FlagBar</strong> na social media!</li>
+        <li>📢 Powiedz znajomym, aby pobrali FlagBar!</li>
+        <li>☕ Wesprzyj moją pracę na:</li>
       </ul>
-      <div style="text-align: center; margin: 1rem 0 0 0;">
-        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">
-          ☕ Buy me a coffee!
-        </a>
-      </div>
+        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">☕ coff.ee/sayouri</a>
     </section>
-    <section lang="en">
+
+    <section class="reveal" lang="en">
       <h2>💖 Support the project</h2>
       <p>This project was born out of a need for visibility and acceptance - created by a queer person, with queer
         communities in mind. If you want to support the development of FlagBar, you can:</p>
       <ul>
-        <li>🌟 Write a review on the expansion shop.</li>
-        <li>📢 Share with others - <strong>#FlagBar</strong> on social media!</li>
+        <li>🌟 Write a review on the extension store.</li>
+        <li>📢 Tell your friends to download FlagBar!</li>
+        <li>☕ Support my work on:</li>
       </ul>
-      <div style="text-align: center; margin: 1rem 0 0 0;">
-        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">
-          ☕ Buy me a coffee!
-        </a>
-      </div>
-    </section>
-    <section lang="cz">
-      <h2>💖 Podpoř projekt</h2>
-      <p>Tenhle projekt byl zrozen s potřeby viditelnosti a přijetí- vytvořen queer člověkem, s queer komunitami na
-        mysli.</br>Jestli chceš podpořit vývoj FlagBar, můžeš:</p>
-      <ul>
-        <li>🌟 Napsat recenzi v obchodě rozšíření.</li>
-        <li>📢 Sdílet s jinými- <strong>#FlagBar</strong> na sociálních sítích!</li>
-      </ul>
-      <div style="text-align: center; margin: 1rem 0 0 0;">
-        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">
-          ☕ Buy me a coffee!
-        </a>
-      </div>
+        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">☕ coff.ee/sayouri</a>
     </section>
 
-    <section lang="pl">
+    <section class="reveal" lang="cz">
+      <h2>💖 Podpoř projekt</h2>
+      <p>Tenhle projekt byl zrozen s potřeby viditelnosti a přijetí- vytvořen queer člověkem, s queer komunitami na
+        mysli.<br>Jestli chceš podpořit vývoj FlagBar, můžeš:</p>
+      <ul>
+        <li>🌟 Napsat recenzi v obchodě rozšíření.</li>
+        <li>📢 Řekni svým přátelům, aby si stáhli FlagBar!</li>
+        <li>☕ Podpoř mou práci na:</li>
+      </ul>
+        <a target="_blank" href="https://coff.ee/sayouri" class="support-button" rel="noopener">☕ coff.ee/sayouri</a>
+    </section>
+
+    <section class="reveal" lang="pl">
       <h2>💬 Masz opinię, sugestię albo znalazłeś błąd?</h2>
       <p>Twoje zdanie się liczy! Podziel się nim na Discordzie:</p>
       <a target="_blank" href="https://discord.nnamesquad.top" class="button" rel="noopener">Dołącz do NoName Squad</a>
     </section>
-    <section lang="en">
+
+    <section class="reveal" lang="en">
       <h2>💬 Do you have an opinion, suggestion or have you found an error?</h2>
       <p>Your feedback counts! Share it on Discord:</p>
       <a target="_blank" href="https://discord.nnamesquad.top" class="button" rel="noopener">Join the NoName Squad</a>
     </section>
-    <section lang="cz">
+
+    <section class="reveal" lang="cz">
       <h2>💬 Máš názor, návrh, nebo si našel chybu?</h2>
       <p>Tvoje zpětná vazba je důležitá! Sdílej ji na Discordu:</p>
-      <a target="_blank" href="https://discord.nnamesquad.top" class="button" rel="noopener">Přidej se do NoName
-        Squad</a>
+      <a target="_blank" href="https://discord.nnamesquad.top" class="button" rel="noopener">Přidej se do NoName Squad</a>
     </section>
   </main>
 
   <footer lang="pl">
-    <p>© 2025 FlagBar. Wszelkie prawa zastrzeżone.<br />Stworzone przez Sayouri & Czogista</p>
-    <div class="footer-links"></div>
-    <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Polityka
-      Prywatności</button>
-    <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
-    <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Statystyki
-      wersji Legacy</button>
+    <p>© 2025 FlagBar. Wszelkie prawa zastrzeżone.<br>Stworzone przez Sayouri & Czogista</p>
+    <div class="footer-links">
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Polityka Prywatności</button>
+      <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Statystyki wersji Legacy</button>
     </div>
   </footer>
+
   <footer lang="en">
-    <p>© 2025 FlagBar. All rights reserved.<br />Created by Sayouri & Czogista</p>
+    <p>© 2025 FlagBar. All rights reserved.<br>Created by Sayouri & Czogista</p>
     <div class="footer-links">
-      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Privacy
-        Policy</button>
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Privacy Policy</button>
       <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
-      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Legacy
-        Extensions Statistics</button>
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Legacy Extensions Statistics</button>
     </div>
   </footer>
+
   <footer lang="cz">
-    <p>© 2025 FlagBar. Všechna práva vyhrazena.<br />Vytvořili Sayouri & Czogista<br /><i
-        style="font-weight: lighter;">Za překlad do tohoto jazyka vděčíme: <strong>@mel_x.</strong></i></p>
+    <p>© 2025 FlagBar. Všechna práva vyhrazena.<br>Vytvořili Sayouri & Czogista<br><i>Za překlad do tohoto jazyka vděčíme: <strong>@mel_x.</strong></i></p>
     <div class="footer-links">
-      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Zásady ochrany
-        osobních údajů</button>
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Zásady ochrany osobních údajů</button>
       <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
-      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Statistiky
-        starších rozšíření</button>
+      <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/legacystats'">📊 Statistiky starších rozšíření</button>
     </div>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => { langENG(); });
-
-    function toggleSection(id) {
-      const sections = document.querySelectorAll('[id$="-section"]'); // Pobieramy wszystkie elementy z id kończącym się na "-section"
-      sections.forEach(section => {
-        if (section.id !== id) {
-          section.classList.remove("active"); // Usuwamy klasę "active" z innych sekcji
-        }
+    function setLanguage(langCode) {
+      document.querySelectorAll('[lang]').forEach(el => {
+        el.style.display = el.getAttribute('lang') === langCode ? '' : 'none';
       });
-      const selectedSection = document.getElementById(id);
-      selectedSection.classList.toggle("active"); // Przełączamy klasę "active" dla wybranej sekcji
+
+      document.querySelectorAll('.lang-button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === langCode);
+      });
+
+      localStorage.setItem('flagbar-lang', langCode);
     }
 
+    function toggleSection(id, trigger) {
+      const sections = document.querySelectorAll('[id$="-section"]');
+      sections.forEach(section => {
+        if (section.id !== id) {
+          section.classList.remove('active');
+        }
+      });
 
+      const selectedSection = document.getElementById(id);
+      if (selectedSection) {
+        selectedSection.classList.toggle('active');
+      }
+
+      if (trigger) {
+        trigger.blur();
+      }
+    }
 
     function langPL() {
-      // Pokaż wszystkie z lang="pl"
-      document.querySelectorAll('[lang="pl"]').forEach(el => {
-        el.style.display = "";
-      });
-      // Ukryj wszystkie z innymi językami (np. en, cz itd.)
-      document.querySelectorAll('[lang]:not([lang="pl"])').forEach(el => {
-        el.style.display = "none";
-      });
+      setLanguage('pl');
     }
 
     function langENG() {
-      document.querySelectorAll('[lang="en"]').forEach(el => {
-        el.style.display = "";
-      });
-      document.querySelectorAll('[lang]:not([lang="en"])').forEach(el => {
-        el.style.display = "none";
-      });
+      setLanguage('en');
     }
 
     function langCZ() {
-      document.querySelectorAll('[lang="cz"]').forEach(el => {
-        el.style.display = "";
-      });
-      document.querySelectorAll('[lang]:not([lang="cz"])').forEach(el => {
-        el.style.display = "none";
-      });
+      setLanguage('cz');
     }
+
+    function initRevealAnimations() {
+      const revealItems = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealItems.forEach(item => observer.observe(item));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const preferredLang = localStorage.getItem('flagbar-lang') || 'en';
+      setLanguage(preferredLang);
+      initRevealAnimations();
+    });
   </script>
 
 </body>
