@@ -1,58 +1,72 @@
-if (performance.navigation.type === 1) {
-    window.location.href = "https://www.sayouri.dev/";
-    style.setAttribute("href", "style.css");
-}
-
-var style = document.getElementById("stylesheet");
-
-function playLizardSound() {
-    try {
-        const audio = new Audio('https://www.sayouri.dev/nns/media/lizard.wav');
-        audio.volume = 1;
-        audio.play();
-    } catch (e) {
-        console.log('Audio playback failed:', e);
+document.addEventListener("DOMContentLoaded", () => {
+    const year = document.getElementById("year");
+    if (year) {
+        year.textContent = String(new Date().getFullYear());
     }
-}
 
-function clickLizard() {
-    playLizardSound();
-    const button = document.getElementById('lizardButton');
-    if (button) {
-        button.style.transform = 'scale(1.2)';
-        setTimeout(() => {
-            button.style.transform = 'scale(1)';
-        }, 150);
-    }
-}
+    const ageNode = document.getElementById("age");
+    if (ageNode) {
+        const birthdate = ageNode.getAttribute("data-birthdate");
+        const parsed = birthdate ? new Date(birthdate) : null;
 
-function showSection(section) {
-    const sections = [
-        { name: "aboutMe", block: "aboutMeBlock", button: "aboutMeButton" },
-        { name: "projects", block: "projectsBlocks", button: "projectsButton" },
-        { name: "contact", block: "contactBlock", button: "contactButton" },
-    ];
+        if (parsed && !Number.isNaN(parsed.getTime())) {
+            const now = new Date();
+            let age = now.getFullYear() - parsed.getFullYear();
+            const birthdayPassed =
+                now.getMonth() > parsed.getMonth() ||
+                (now.getMonth() === parsed.getMonth() && now.getDate() >= parsed.getDate());
 
-    sections.forEach(s => {
-        const block = document.getElementById(s.block);
-        const button = document.getElementById(s.button);
-        const img1 = document.getElementById("imgsubp");
-        const img2 = document.getElementById("imgmainp");
-        if (s.name === section) {
-            block.style.display = "block";
-            button.className = "btn-sellected";
-            img1.style.display = "none"; img2.style.display = "block";
-        } else {
-            block.style.display = "none";
-            button.className = "btn";
+            if (!birthdayPassed) {
+                age -= 1;
+            }
+
+            ageNode.textContent = String(age);
         }
-    });
-    style.setAttribute("href", "style2.css");
-}
-document.addEventListener('DOMContentLoaded', function () {
+    }
 
-    const lizardButton = document.getElementById('lizardButton');
-    if (lizardButton) {
-        lizardButton.style.transition = 'transform 0.15s ease';
+    const durationNode = document.getElementById("hrt-duration");
+    if (durationNode) {
+        const startDateRaw = durationNode.getAttribute("data-start-date");
+        const startDate = startDateRaw ? new Date(startDateRaw) : null;
+
+        if (startDate && !Number.isNaN(startDate.getTime())) {
+            const now = new Date();
+            const msPerDay = 24 * 60 * 60 * 1000;
+            const startUtc = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+            const nowUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+            const daysElapsed = Math.max(0, Math.floor((nowUtc - startUtc) / msPerDay));
+
+            durationNode.textContent = `${daysElapsed} day${daysElapsed === 1 ? "" : "s"}`;
+        }
+    }
+
+    const costNode = document.getElementById("hrt-cost");
+    if (costNode) {
+        const startDateRaw = costNode.getAttribute("data-start-date");
+        const startDate = startDateRaw ? new Date(startDateRaw) : null;
+        const monthlyCostRaw = costNode.getAttribute("data-monthly-cost");
+        const monthlyCost = monthlyCostRaw ? Number(monthlyCostRaw) : Number.NaN;
+        const currency = costNode.getAttribute("data-currency") || "CZK";
+
+        if (startDate && !Number.isNaN(startDate.getTime()) && Number.isFinite(monthlyCost) && monthlyCost >= 0) {
+            const now = new Date();
+            const msPerDay = 24 * 60 * 60 * 1000;
+            const startUtc = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+            const nowUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+            const daysElapsed = Math.max(0, Math.floor((nowUtc - startUtc) / msPerDay));
+
+            const averageDaysPerMonth = 30.4375;
+            const totalCost = (daysElapsed / averageDaysPerMonth) * monthlyCost;
+            const roundedCost = currency === "CZK"
+                ? Math.round(totalCost / 100) * 100
+                : totalCost;
+            const formattedCost = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency,
+                maximumFractionDigits: 0
+            }).format(roundedCost);
+
+            costNode.textContent = formattedCost;
+        }
     }
 });
