@@ -213,6 +213,47 @@ p {
   opacity: 0.95;
 }
 
+.supporters-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.supporters-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.supporters-controls p {
+  margin: 0;
+}
+
+.supporters-controls label {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.supporters-controls select {
+  background: rgba(21, 23, 43, 0.85);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font: inherit;
+}
+
+.supporters-list li {
+  margin-bottom: 0.45rem;
+}
+
+.support-icon {
+  height: 1em;
+  width: auto;
+  vertical-align: -0.15em;
+}
+
 .site-footer {
   border-top: 1px solid rgba(95, 207, 250, 0.15);
   padding: 18px 0 26px;
@@ -251,5 +292,11 @@ p {
   .button {
     width: 100%;
     text-align: center;
+  }
+
+  .supporters-controls {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
   }
 }
