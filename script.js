@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const supportersList = document.querySelector(".supporters-list");
     if (supportersList) {
         const supportersSort = document.getElementById("supporters-sort");
-        const items = Array.from(supportersList.querySelectorAll("li"));
 
         const readNumber = (value) => {
             const num = Number(value);
@@ -75,11 +74,35 @@ document.addEventListener("DOMContentLoaded", () => {
             return Number.isFinite(ts) ? ts : 0;
         };
 
-        items.forEach((item, index) => {
-            item.dataset.manualIndex = String(index);
-        });
+        const formatDate = (dateStr) => {
+            const d = new Date(dateStr + "T00:00:00");
+            return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        };
 
-        const sortItems = (mode) => {
+        const buildItem = (supporter, index) => {
+            const li = document.createElement("li");
+            li.dataset.estrogen = String(supporter.estrogen);
+            li.dataset.priceCzk = String(supporter.priceCzk);
+            li.dataset.date = supporter.date;
+            li.dataset.manualIndex = String(index);
+
+            const strong = document.createElement("strong");
+            strong.textContent = supporter.name;
+
+            const img = document.createElement("img");
+            img.className = "support-icon";
+            img.src = "media/estradiol.png";
+            img.alt = "estradiol";
+
+            li.appendChild(strong);
+            li.append(`: ${supporter.estrogen}x `);
+            li.appendChild(img);
+            li.append(` worth ${supporter.priceCzk} CZK on ${formatDate(supporter.date)}`);
+
+            return li;
+        };
+
+        const sortItems = (items, mode) => {
             const sorted = [...items];
 
             sorted.sort((a, b) => {
@@ -92,10 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const aManual = readNumber(a.dataset.manualIndex);
                 const bManual = readNumber(b.dataset.manualIndex);
 
-                if (mode === "manual") {
-                    return aManual - bManual;
-                }
-
                 if (mode === "latest") {
                     return bDate - aDate || bEstrogen - aEstrogen || bPrice - aPrice || aManual - bManual;
                 }
@@ -103,17 +122,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 return bEstrogen - aEstrogen || bPrice - aPrice || bDate - aDate || aManual - bManual;
             });
 
-            sorted.forEach((item) => {
-                supportersList.appendChild(item);
-            });
+            supportersList.replaceChildren(...sorted);
         };
 
-        sortItems(supportersSort ? supportersSort.value : "top");
+        fetch("supporters.json")
+            .then((res) => res.json())
+            .then((data) => {
+                const items = data.map((s, i) => buildItem(s, i));
+                sortItems(items, supportersSort ? supportersSort.value : "top");
 
-        if (supportersSort) {
-            supportersSort.addEventListener("change", () => {
-                sortItems(supportersSort.value);
+                if (supportersSort) {
+                    supportersSort.addEventListener("change", () => {
+                        const current = Array.from(supportersList.querySelectorAll("li"));
+                        sortItems(current, supportersSort.value);
+                    });
+                }
             });
-        }
     }
 });
