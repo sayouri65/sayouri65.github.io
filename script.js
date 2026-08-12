@@ -125,9 +125,62 @@ document.addEventListener("DOMContentLoaded", () => {
             supportersList.replaceChildren(...sorted);
         };
 
-        fetch("supporters.json")
-            .then((res) => res.json())
+        const showSupportersMessage = (message) => {
+            const li = document.createElement("li");
+            li.textContent = message;
+            supportersList.replaceChildren(li);
+        };
+
+        const isValidSupporter = (supporter) => {
+            if (!supporter || typeof supporter !== "object") {
+                return false;
+            }
+
+            const hasName = typeof supporter.name === "string" && supporter.name.trim().length > 0;
+            const hasEstrogen = Number.isFinite(Number(supporter.estrogen));
+            const hasPrice = Number.isFinite(Number(supporter.priceCzk));
+            const hasDate = typeof supporter.date === "string" && Number.isFinite(Date.parse(supporter.date));
+
+            return hasName && hasEstrogen && hasPrice && hasDate;
+        };
+
+        const fetchSupporters = async () => {
+            const candidates = [
+                new URL("supporters.json", document.baseURI).href,
+                `${window.location.origin}/supporters.json`,
+                "https://sayouri.dev/supporters.json",
+                "https://sayouri65.github.io/supporters.json"
+            ];
+
+            let lastError = null;
+            for (const url of candidates) {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Request failed with ${response.status}`);
+                    }
+
+                    const payload = await response.json();
+                    if (!Array.isArray(payload)) {
+                        throw new Error("Supporters payload is not an array");
+                    }
+
+                    return payload.filter(isValidSupporter);
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+
+            throw lastError || new Error("Unable to load supporters");
+        };
+
+        fetchSupporters()
             .then((data) => {
+                if (!data.length) {
+                    showSupportersMessage("No supporters yet.");
+                    return;
+                }
+
                 const items = data.map((s, i) => buildItem(s, i));
                 sortItems(items, supportersSort ? supportersSort.value : "top");
 
@@ -137,6 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         sortItems(current, supportersSort.value);
                     });
                 }
+            })
+            .catch(() => {
+                showSupportersMessage("Supporters could not be loaded right now.");
             });
     }
 });
