@@ -1,0 +1,54 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Password never lives in the repo: hash the secret at build time and
+      # substitute it for the placeholder in arch/config.js before publishing.
+      - name: Inject archive password hash
+        env:
+          ARCH_PASSWORD: ${{ secrets.ARCH_PASSWORD }}
+        run: |
+          if [ -z "$ARCH_PASSWORD" ]; then
+            echo "::error::Repository secret ARCH_PASSWORD is not set."
+            exit 1
+          fi
+          HASH=$(printf '%s' "$ARCH_PASSWORD" | sha256sum | cut -d' ' -f1)
+          sed -i "s/__ARCH_PASSWORD_HASH__/$HASH/" arch/config.js
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

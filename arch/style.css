@@ -1,0 +1,308 @@
+/* Restricted Archive — gate styling
+   Modern-tech / abandoned-archive aesthetic: dark terminal surfaces,
+   scanlines, subtle grid, cyan + trans-pink glow accents. */
+
+:root {
+    --bg: #07090c;
+    --bg-alt: #0d1117;
+    --panel: #10151b;
+    --border: #1f2b33;
+    --border-soft: #182229;
+    --text: #d7e2e6;
+    --text-dim: #7c8a92;
+    --accent-cyan: #57e7e0;
+    --accent-pink: #ff8fc4;
+    --accent-pink-soft: rgba(255, 143, 196, 0.35);
+    --danger: #ff6b6b;
+    --mono: "JetBrains Mono", "Consolas", ui-monospace, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 0%, #0d151b 0%, var(--bg) 55%, #050607 100%);
+    color: var(--text);
+    font-family: var(--mono);
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+}
+
+/* --- ambient background layers --- */
+
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(to right, rgba(87, 231, 224, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(87, 231, 224, 0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 50% 35%, black 0%, transparent 75%);
+    pointer-events: none;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.025) 0px,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px,
+            transparent 3px);
+    mix-blend-mode: overlay;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/* --- layout --- */
+
+.gate {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 440px;
+}
+
+.gate-card {
+    width: 100%;
+    background: linear-gradient(180deg, var(--panel), #0b1014 90%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow:
+        0 0 0 1px rgba(87, 231, 224, 0.04),
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(255, 143, 196, 0.05);
+    padding: 22px 26px 26px;
+    backdrop-filter: blur(6px);
+}
+
+.gate-card.shake {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(7px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+}
+
+.gate-topline {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px dashed var(--border-soft);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+}
+
+.dot-a {
+    background: #ff6b6b;
+}
+
+.dot-b {
+    background: #ffd166;
+}
+
+.dot-c {
+    background: #57e78a;
+}
+
+.topline-text {
+    margin-left: auto;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+}
+
+.gate-header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.gate-icon {
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 10px rgba(87, 231, 224, 0.45));
+    margin-bottom: 10px;
+}
+
+.gate-header h1 {
+    font-size: 19px;
+    letter-spacing: 0.14em;
+    margin: 0 0 8px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.gate-sub {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--text-dim);
+}
+
+.gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.gate-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-dim);
+}
+
+.gate-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #060a0d;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gate-input-row:focus-within {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(87, 231, 224, 0.12);
+}
+
+.prompt-caret {
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+
+.gate-input-row input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 15px;
+    letter-spacing: 0.08em;
+}
+
+.gate-input-row input::placeholder {
+    color: #3c4750;
+}
+
+.gate-submit {
+    margin-top: 6px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-pink-soft);
+    background: linear-gradient(90deg, rgba(87, 231, 224, 0.14), rgba(255, 143, 196, 0.14));
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.gate-submit:hover {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 22px rgba(255, 143, 196, 0.18);
+    transform: translateY(-1px);
+}
+
+.gate-submit:active {
+    transform: translateY(0);
+}
+
+.gate-error {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--danger);
+    letter-spacing: 0.03em;
+}
+
+.gate-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-soft);
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+}
+
+.gate-clock {
+    color: var(--accent-cyan);
+}
+
+.gate-status em {
+    color: var(--accent-pink);
+    font-style: normal;
+}
+
+.gate-hint {
+    max-width: 380px;
+    text-align: center;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .gate-card {
+        padding: 18px 18px 20px;
+    }
+}
