@@ -1,10 +1,23 @@
 body {
     overflow-x: hidden;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout {
+    width: min(980px, calc(100% - 32px));
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 0 32px;
 }
 
 .not-found {
+    width: 100%;
     text-align: center;
     overflow: hidden;
 }
@@ -72,13 +85,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .forest .tree {
         animation: none;
-    }
-    html,
-    body {
-        overflow-x: hidden;
-    }
-
-    body {
-        min-height: 100vh;
     }
 }
