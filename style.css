@@ -24,9 +24,10 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(700px 500px at 10% -10%, rgba(245, 169, 184, 0.18), transparent 65%),
-    radial-gradient(800px 500px at 100% 0%, rgba(91, 207, 250, 0.12), transparent 60%),
-    linear-gradient(160deg, var(--bg) 0%, #0d0e1a 100%);
+    radial-gradient(520px 360px at -8% -18%, rgba(245, 169, 184, 0.1), transparent 72%),
+    linear-gradient(160deg, #151624 0%, #0d0e1a 58%, #0b0c16 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--text);
   font-family: Manrope, "Segoe UI", sans-serif;
   line-height: 1.65;
