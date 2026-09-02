@@ -1,0 +1,68 @@
+.not-found {
+    text-align: center;
+    overflow: hidden;
+}
+
+.not-found h1 {
+    font-size: clamp(3rem, 12vw, 6rem);
+    margin: 4px 0 6px;
+}
+
+.not-found .lead {
+    margin: 0 auto 16px;
+}
+
+.not-found .hero-actions {
+    justify-content: center;
+}
+
+.not-found code {
+    background: rgba(91, 207, 250, 0.12);
+    border: 1px solid rgba(91, 207, 250, 0.3);
+    border-radius: 6px;
+    padding: 1px 6px;
+    color: var(--blue);
+    word-break: break-all;
+}
+
+.forest {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: clamp(6px, 2vw, 18px);
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    margin-bottom: 6px;
+    filter: drop-shadow(0 10px 16px rgba(5, 5, 16, 0.4));
+}
+
+.forest .tree {
+    animation: sway 4s ease-in-out infinite;
+}
+
+.forest .tree.small {
+    font-size: 0.75em;
+    animation-duration: 3.2s;
+}
+
+.forest .tree:nth-child(2n) {
+    animation-delay: -1.2s;
+}
+
+.forest .tree:nth-child(3n) {
+    animation-delay: -2.4s;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .forest .tree {
+        animation: none;
+    }
+}
