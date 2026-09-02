@@ -14,7 +14,7 @@
   <meta property="og:description" content="A browser extension that adds your identity colors to YouTube">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sayouri.dev/flagbar">
-  <meta name="author" content="Sayouri & Czogista">
+  <meta name="author" content="Sayouri">
   <link rel="icon" type="image/png" sizes="16x16" href="https://sayouri.dev/flagbar/media/flagbar_icons/icon16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://sayouri.dev/flagbar/media/flagbar_icons/icon32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="https://sayouri.dev/flagbar/media/flagbar_icons/icon48.png">
@@ -198,7 +198,7 @@
   </main>
 
   <footer lang="pl">
-    <p>© 2025 FlagBar. Wszelkie prawa zastrzeżone.<br>Stworzone przez Sayouri & Czogista</p>
+    <p>© 2025-<span id="current-year"></span> FlagBar. Wszelkie prawa zastrzeżone.<br>Stworzone przez Sayouri</p>
     <div class="footer-links">
       <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Polityka Prywatności</button>
       <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
@@ -207,7 +207,7 @@
   </footer>
 
   <footer lang="en">
-    <p>© 2025 FlagBar. All rights reserved.<br>Created by Sayouri & Czogista</p>
+    <p>© 2025-<span id="current-year"></span> FlagBar. All rights reserved.<br>Created by Sayouri</p>
     <div class="footer-links">
       <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Privacy Policy</button>
       <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
@@ -216,7 +216,7 @@
   </footer>
 
   <footer lang="cz">
-    <p>© 2025 FlagBar. Všechna práva vyhrazena.<br>Vytvořili Sayouri & Czogista<br><i>Za překlad do tohoto jazyka vděčíme: <strong>@mel_x.</strong></i></p>
+    <p>© 2025-<span id="current-year"></span> FlagBar. Všechna práva vyhrazena.<br>Vytvořili Sayouri<br><i>Za překlad do tohoto jazyka vděčíme: <strong>@mel_x.</strong></i></p>
     <div class="footer-links">
       <button class="footer-btn" onclick="location.href='https://sayouri.dev/flagbar/privacy'">Zásady ochrany osobních údajů</button>
       <button class="footer-btn" onclick="location.href='https://discord.nnamesquad.top'">Discord</button>
@@ -285,6 +285,9 @@
       const preferredLang = localStorage.getItem('flagbar-lang') || 'en';
       setLanguage(preferredLang);
       initRevealAnimations();
+      document.querySelectorAll('#current-year').forEach(yearElement => {
+        yearElement.textContent = new Date().getFullYear();
+      });
     });
   </script>
 
