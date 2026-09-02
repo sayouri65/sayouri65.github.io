@@ -36,7 +36,7 @@ function initTopicGrid() {
   const grid = document.querySelector('[data-topics-grid]');
   if (!grid || !window.TOPICS) return;
   grid.innerHTML = TOPICS.map((t, i) => `
-    <a class="topic-card" href="/${t.href}" data-reveal style="--delay:${i * 70}ms">
+    <a class="topic-card" href="/TEMP/LexiAlex/${t.href}" data-reveal style="--delay:${i * 70}ms">
       <span class="topic-icon topic-icon--${t.color}">${icon(t.icon)}</span>
       <h3>${t.title}</h3>
       <p>${t.desc}</p>

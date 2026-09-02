@@ -2,11 +2,12 @@
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     const year = new Date().getFullYear();
+    const siteRoot = '/TEMP/LexiAlex/';
 
     this.innerHTML = `
       <div class="footer-inner">
         <div class="footer-col footer-brand">
-          <a class="brand" href="/index.html">
+          <a class="brand" href="${siteRoot}index.html">
             ${icon('leaf', 'brand-icon')}
             <span>Zemědělství <em>trochu jinak</em></span>
           </a>
@@ -20,18 +21,18 @@ class SiteFooter extends HTMLElement {
         <div class="footer-col">
           <h3>Obsah</h3>
           <ul>
-            <li><a href="/studijni-materialy.html">Studijní materiály</a></li>
-            <li><a href="/karticky.html">Kartičky</a></li>
-            <li><a href="/kvizy.html">Kvízy</a></li>
-            <li><a href="/tipy-na-uceni.html">Tipy na učení</a></li>
+            <li><a href="${siteRoot}studijni-materialy.html">Studijní materiály</a></li>
+            <li><a href="${siteRoot}karticky.html">Kartičky</a></li>
+            <li><a href="${siteRoot}kvizy.html">Kvízy</a></li>
+            <li><a href="${siteRoot}tipy-na-uceni.html">Tipy na učení</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3>Projekt</h3>
           <ul>
-            <li><a href="/o-projektu.html">O projektu</a></li>
-            <li><a href="/zdroje.html">Zdroje &amp; citace</a></li>
+            <li><a href="${siteRoot}o-projektu.html">O projektu</a></li>
+            <li><a href="${siteRoot}zdroje.html">Zdroje &amp; citace</a></li>
           </ul>
         </div>
 

@@ -2,24 +2,25 @@
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     const page = (location.pathname.split('/').pop() || 'index.html');
+    const siteRoot = '/TEMP/LexiAlex/';
 
     const links = [
-      { href: `/index.html`, label: 'Domů' },
-      { href: `/o-projektu.html`, label: 'O projektu' },
-      { href: `/studijni-materialy.html`, label: 'Studijní materiály' },
-      { href: `/karticky.html`, label: 'Kartičky' },
-      { href: `/kvizy.html`, label: 'Kvízy' },
-      { href: `/tipy-na-uceni.html`, label: 'Tipy na učení' },
-      { href: `/zdroje.html`, label: 'Zdroje' }
+      { href: `${siteRoot}index.html`, label: 'Domů' },
+      { href: `${siteRoot}o-projektu.html`, label: 'O projektu' },
+      { href: `${siteRoot}studijni-materialy.html`, label: 'Studijní materiály' },
+      { href: `${siteRoot}karticky.html`, label: 'Kartičky' },
+      { href: `${siteRoot}kvizy.html`, label: 'Kvízy' },
+      { href: `${siteRoot}tipy-na-uceni.html`, label: 'Tipy na učení' },
+      { href: `${siteRoot}zdroje.html`, label: 'Zdroje' }
     ];
 
     const topicsMenu = (window.TOPICS || []).map(t =>
-      `<a href="/${t.href}">${icon(t.icon)}<span>${t.title}</span></a>`
+      `<a href="${siteRoot}${t.href}">${icon(t.icon)}<span>${t.title}</span></a>`
     ).join('');
 
     this.innerHTML = `
       <div class="header-inner">
-        <a class="brand" href="/index.html">
+        <a class="brand" href="${siteRoot}index.html">
           ${icon('leaf', 'brand-icon')}
           <span>Zemědělství <em>trochu jinak</em></span>
         </a>
