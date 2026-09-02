@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zdroje — Zemědělství trochu jinak</title>
+<meta name="description" content="Ověřené zdroje a citace použité u jednotlivých témat zemědělství.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%236F8F72'/%3E%3Cpath d='M17 6c-6 0-12 3-12 11 8 0 12-4.5 12-11z' fill='%23E6E6FA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <section class="hero" style="padding-bottom:1rem;">
+    <div class="container">
+      <span class="eyebrow"><span data-icon="link"></span> Zdroje</span>
+      <h1>Odkud <em>čerpáme</em></h1>
+      <p class="lead">Ke každému tématu uvádíme ověřené zdroje, ze kterých vycházíme. Seznamy postupně doplňujeme.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:1rem">
+    <div class="container">
+      <div class="two-col" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="content-card" data-reveal>
+          <h3><span data-icon="leaf"></span> Rostlinná výroba</h3>
+          <ul class="sources-list" data-sources="rostliny"></ul>
+        </div>
+        <div class="content-card" data-reveal style="--delay:60ms">
+          <h3><span data-icon="cow"></span> Živočišná výroba</h3>
+          <ul class="sources-list" data-sources="zvirata"></ul>
+        </div>
+        <div class="content-card" data-reveal style="--delay:120ms">
+          <h3><span data-icon="flask"></span> Věda</h3>
+          <ul class="sources-list" data-sources="veda"></ul>
+        </div>
+        <div class="content-card" data-reveal>
+          <h3><span data-icon="tractor"></span> Mechanizace</h3>
+          <ul class="sources-list" data-sources="mechanizace"></ul>
+        </div>
+        <div class="content-card" data-reveal style="--delay:60ms">
+          <h3><span data-icon="mountain"></span> Půda a krajina</h3>
+          <ul class="sources-list" data-sources="puda-a-krajina"></ul>
+        </div>
+        <div class="content-card" data-reveal style="--delay:120ms">
+          <h3><span data-icon="book"></span> Další témata</h3>
+          <ul class="sources-list" data-sources="dalsi-temata"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="disclaimer-box" data-reveal>
+        <span data-icon="shield"></span>
+        <p><strong>Upozornění:</strong> I s uvedenými zdroji je tento web pouze doplňkovým materiálem — pro přesné a aktuální informace vždy doporučujeme konzultovat odbornou literaturu a vyučující.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<site-footer></site-footer>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components/header.js"></script>
+<script src="assets/js/components/footer.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

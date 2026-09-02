@@ -1,0 +1,76 @@
+/* Thematic styling just for the 404 page — a little tractor lost on the road. */
+
+.error-scene {
+  position: relative;
+  width: min(420px, 90%);
+  height: 90px;
+  margin: 0 auto 1.6rem;
+  overflow: hidden;
+}
+
+.error-scene .road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-accent) 0 18px,
+    transparent 18px 34px
+  );
+  opacity: 0.6;
+}
+
+.error-scene .tractor {
+  position: absolute;
+  bottom: 20px;
+  left: -15%;
+  color: var(--color-primary-dark);
+  animation: tractor-drive 6s linear infinite, tractor-bounce 0.35s ease-in-out infinite;
+}
+.error-scene .tractor svg { width: 2.6rem; height: 2.6rem; }
+
+.error-scene .dust {
+  position: absolute;
+  bottom: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0;
+  animation: dust-puff 6s linear infinite;
+}
+.error-scene .dust:nth-child(3) { left: -18%; animation-delay: 0s; }
+.error-scene .dust:nth-child(4) { left: -20%; animation-delay: 0.5s; }
+.error-scene .dust:nth-child(5) { left: -22%; animation-delay: 1s; }
+
+@keyframes tractor-drive {
+  0% { left: -15%; }
+  100% { left: 112%; }
+}
+@keyframes tractor-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes dust-puff {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.6); }
+  8% { opacity: 0.5; }
+  20% { opacity: 0; transform: translate(-14px, -10px) scale(1.3); }
+  100% { opacity: 0; }
+}
+
+.error-page .funny-caption {
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-top: -0.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-scene .tractor,
+  .error-scene .dust {
+    animation: none;
+  }
+  .error-scene .tractor { left: 40%; }
+}

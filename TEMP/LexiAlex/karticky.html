@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartičky — Zemědělství trochu jinak</title>
+<meta name="description" content="Interaktivní kartičky na procvičení pojmů ze všech témat zemědělství.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%236F8F72'/%3E%3Cpath d='M17 6c-6 0-12 3-12 11 8 0 12-4.5 12-11z' fill='%23E6E6FA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+<site-header></site-header>
+
+<main>
+  <section class="hero" style="padding-bottom:1rem;">
+    <div class="container">
+      <span class="eyebrow"><span data-icon="cards"></span> Kartičky</span>
+      <h1>Uč se <em>hrou</em></h1>
+      <p class="lead">Vyber si téma, otoč kartičku a zkontroluj, jestli sis odpověď pamatoval správně.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:1rem">
+    <div class="container">
+      <div class="flashcard-app" data-flashcards="rostliny">
+        <div class="flashcard-controls-top">
+          <select data-deck-select aria-label="Vyber téma kartiček"></select>
+        </div>
+        <div class="flashcard-stage" data-flashcard-stage></div>
+        <div class="flashcard-actions">
+          <button class="icon-btn" data-flashcard-prev aria-label="Předchozí kartička" data-icon="arrow" style="transform:scaleX(-1)"></button>
+          <span class="flashcard-counter" data-flashcard-counter></span>
+          <button class="icon-btn" data-flashcard-next aria-label="Další kartička" data-icon="arrow"></button>
+          <button class="icon-btn" data-flashcard-shuffle aria-label="Zamíchat kartičky" data-icon="sparkle"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<site-footer></site-footer>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/components/header.js"></script>
+<script src="assets/js/components/footer.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/flashcards.js"></script>
+</body>
+</html>
