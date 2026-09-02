@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en-US" id="htmlRoot">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../../guard.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PFR • Maleka DEV</title>
+    <link rel="icon" type="image/png" href="../media/malekadev_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* PFR-specific styles that extend the main design */
+        .PFR-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .PFR-header {
+            padding: var(--space-lg) 0;
+            background: rgba(17, 17, 20, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-primary);
+        }
+        
+        .PFR-main {
+            flex: 1;
+            padding: var(--space-xl) var(--space-lg);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .calculator-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            width: 100%;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-large);
+        }
+        
+        .calculator-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .calculator-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        .journey-controls {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+        
+        .journey-select {
+            flex: 1;
+        }
+        
+        .cheaper-ride-btn {
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            white-space: nowrap;
+        }
+        
+        .cheaper-ride-btn:hover {
+            border-color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .cheaper-ride-btn.active {
+            border-color: #ffc107;
+            background: #ffc107;
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .calculation-mode {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .mode-toggle {
+            display: flex;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .mode-btn {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            border-right: 1px solid var(--border-primary);
+        }
+        
+        .mode-btn:last-child {
+            border-right: none;
+        }
+        
+        .mode-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .mode-btn:hover:not(.active) {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        
+        .manual-distance-group {
+            display: none;
+        }
+        
+        .manual-distance-group.active {
+            display: block;
+        }
+        
+        .address-groups {
+            display: block;
+        }
+        
+        .address-groups.hidden {
+            display: none;
+        }
+        
+        .address-only {
+            display: block;
+        }
+        
+        .address-only.hidden {
+            display: none;
+        }
+        
+        .manual-only {
+            display: none !important;
+        }
+        
+        .manual-only.active {
+            display: block !important;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-cyan));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            margin: var(--space-lg) 0;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .results {
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border: 1px solid var(--border-primary);
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-xs) 0;
+            border-bottom: 1px solid var(--border-secondary);
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-item.total {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid var(--border-primary);
+        }
+        
+        .result-item.final-total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .payment-section {
+            margin-top: var(--space-lg);
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(124, 77, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid #7c4dff;
+        }
+        
+        .payment-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #7c4dff, #3f51b5);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+        }
+        
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .suggestion-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-secondary);
+            transition: background-color 0.2s var(--ease-smooth);
+        }
+        
+        .suggestion-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: var(--space-xl);
+            color: var(--text-secondary);
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-primary);
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto var(--space-sm) auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid #ff4d4d;
+            border-radius: 8px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            text-align: center;
+            color: #ff4d4d;
+        }
+        
+        .info-section {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-primary);
+        }
+        
+        .info-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-section li {
+            margin-bottom: var(--space-xs);
+            color: var(--text-secondary);
+            padding-left: var(--space-lg);
+            position: relative;
+        }
+        
+        .info-section li:before {
+            content: "✓";
+            color: var(--primary-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .card-footer {
+            text-align: center;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-primary);
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+        
+        /* Payment Modal Styles */
+        .payment-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            padding: 1rem;
+        }
+        
+        .payment-modal {
+            background: var(--bg-card);
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-primary);
+        }
+        
+        .payment-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--border-primary);
+            background: var(--primary-blue);
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .payment-modal-header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s var(--ease-smooth);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .payment-modal-content {
+            padding: var(--space-lg);
+        }
+        
+        .payment-amount-info {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid #ffa500;
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+        
+        .payment-amount-info h3 {
+            color: #ffa500;
+            margin: 0 0 var(--space-sm) 0;
+        }
+        
+        .amount-highlight {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff88;
+            margin: var(--space-sm) 0;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+        
+        .payment-route-info {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .payment-route-info h3 {
+            color: var(--primary-blue);
+            margin: 0 0 var(--space-sm) 0;
+        }
+        
+        .map-links {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .map-link-item {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .map-link-item:last-child {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .map-link-item label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+        
+        .link-box {
+            display: flex;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .link-box input {
+            flex: 1;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .coordinates-info {
+            background: var(--bg-secondary);
+            padding: var(--space-xs);
+            border-radius: 6px;
+            margin-top: var(--space-xs);
+        }
+        
+        .coordinates-info small {
+            color: var(--text-tertiary);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .copy-btn {
+            background: var(--primary-blue);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+        }
+        
+        .link-instruction {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin: 0;
+            font-style: italic;
+        }
+        
+        .route-summary {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .route-summary h4 {
+            color: var(--text-secondary);
+            margin: 0 0 var(--space-xs) 0;
+        }
+        
+        .route-summary p {
+            margin: 0.25rem 0;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        
+        .payment-buttons {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+        }
+        
+        .cancel-btn, .proceed-btn {
+            flex: 1;
+            padding: var(--space-sm);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-smooth);
+        }
+        
+        .cancel-btn {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-primary);
+        }
+        
+        .cancel-btn:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .proceed-btn {
+            background: linear-gradient(45deg, #7c4dff, #3f51b5);
+            color: white;
+        }
+        
+        .proceed-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .PFR-main {
+                padding: var(--space-lg) var(--space-sm);
+            }
+            
+            .calculator-card {
+                padding: var(--space-lg);
+            }
+            
+            .calculator-title {
+                font-size: 2rem;
+            }
+            
+            .journey-controls {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .cheaper-ride-btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <!-- Using OpenStreetMap/Nominatim instead of Google Maps for no API key requirement -->
+    <script src="PFR-script.js"></script>
+</head>
+
+<body class="PFR-container">
+    <!-- Background elements from main design -->
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="floating-particles"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+    
+    <p class="logo-request">You're viewing an archived version of this website.</p>
+
+    <main class="PFR-main">
+        <div class="calculator-card">
+            <h1 class="calculator-title">🚖 PFR</h1>
+            <p class="calculator-subtitle">Calculate the price for your ride</p>
+            
+            <div class="calculator-form">
+                <div class="calculation-mode">
+                    <label class="form-label">Calculation Mode:</label>
+                    <div class="mode-toggle">
+                        <button type="button" class="mode-btn active" id="addressModeBtn" onclick="switchMode('address')">📍 Address</button>
+                        <button type="button" class="mode-btn" id="manualModeBtn" onclick="switchMode('manual')">📏 Distance</button>
+                    </div>
+                </div>
+                
+                <div class="address-groups" id="addressGroups">
+                    <div class="form-group">
+                        <label for="startAddress" class="form-label">From (Starting Address):</label>
+                        <input type="text" id="startAddress" class="form-input" placeholder="Enter starting address..." />
+                        <div class="suggestions" id="startSuggestions"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="endAddress" class="form-label">To (Destination Address):</label>
+                        <input type="text" id="endAddress" class="form-input" placeholder="Enter destination address..." />
+                        <div class="suggestions" id="endSuggestions"></div>
+                    </div>
+                </div>
+                
+                <div class="manual-distance-group" id="manualDistanceGroup">
+                    <div class="form-group">
+                        <label for="regularDistance" class="form-label">Regular Distance (km):</label>
+                        <input type="number" id="regularDistance" class="form-input" placeholder="Enter regular distance..." min="0" step="0.1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="zona2Distance" class="form-label">Zona 2 Distance (km) - Night/Out of City:</label>
+                        <input type="number" id="zona2Distance" class="form-input" placeholder="Enter zona 2 distance..." min="0" step="0.1" />
+                    </div>
+                </div>
+                
+                <div class="form-group address-only" id="addressOnlyGroup">
+                    <label for="journeyType" class="form-label">Journey Type:</label>
+                    <div class="journey-controls">
+                        <select id="journeyType" class="form-select journey-select">
+                            <option value="oneway">One Way</option>
+                            <option value="return" selected>+ Return</option>
+                        </select>
+                        <button type="button" id="cheaperRideBtn" class="cheaper-ride-btn" onclick="toggleCheaperRide()">💰 Cheaper Ride</button>
+                    </div>
+                </div>
+                
+                <div class="form-group manual-only" id="manualOnlyGroup">
+                    <div class="journey-controls">
+                        <button type="button" id="cheaperRideBtn2" class="cheaper-ride-btn" onclick="toggleCheaperRide()">💰 Cheaper Ride</button>
+                    </div>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculatePrice()">Calculate Price</button>
+                
+                <div class="results" id="results" style="display: none;">
+                    <div class="result-item">
+                        <span class="label">Distance:</span>
+                        <span class="value" id="distance">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Rate:</span>
+                        <span class="value" id="currentRate">8.31 CZK/km</span>
+                    </div>
+                    <div class="result-item total">
+                        <span class="label">Total Price:</span>
+                        <span class="value" id="totalPrice">-</span>
+                    </div>
+                    <div class="result-item processing-fee" id="processingFee" style="display: none;">
+                        <span class="label">Processing Fee (1.2% + 7 CZK):</span>
+                        <span class="value" id="processingFeeAmount">-</span>
+                    </div>
+                    <div class="result-item final-total" id="finalTotal" style="display: none;">
+                        <span class="label">Final Amount (without processing fee):</span>
+                        <span class="value" id="finalTotalAmount">-</span>
+                    </div>
+                    
+                    <div class="payment-section" id="paymentSection" style="display: none;">
+                        <button class="payment-btn" onclick="proceedToPayment()">
+                            💳 Proceed to Payment (Revolut)
+                        </button>
+                        <p class="payment-info">Secure payment via Revolut • Processing fee may be included</p>
+                    </div>
+                </div>
+                
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Calculating route...</p>
+                </div>
+                
+                <div class="error" id="error" style="display: none;">
+                    <p>❌ Could not calculate the route. Please check the addresses and try again.</p>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h3>📋 Information</h3>
+                <ul>
+                    <li>Rate: <span id="regularRateDisplay">-</span> CZK per kilometer</li>
+                    <li>Friends' rate: <span id="cheaperRateDisplay">-</span> CZK per kilometer</li>
+                    <li>Zona 2: Outside the city limits or between 10 p.m. and 6 a.m.</li>
+                </ul>
+                <h3>⚠️ Disclaimer</h3>
+                <ul>
+                    <li>I don't operate a taxi service or have a taxi license because this is just a tool I use for my own personal calculations.</li>
+                    <li>This is NOT a public service or advertisement. It is a private tool used to calculate how much I should charge friends for trips they ask me to take.</li>
+                    <li>The rate is calculated manually based on my vehicle's service data (fuel consumption and depreciation) or the market price of fuel, and is updated at least once a month to ensure that only the costs incurred are reimbursed, without generating a profit.</li>
+                </ul>
+            </div>
+            
+            <div class="card-footer">
+                <span>PFR by Maleka DEV 🚗</span>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

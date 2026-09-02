@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Restricted Archive // Access Required</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <div class="grid-bg"></div>
+
+    <main class="gate">
+        <div class="gate-card">
+            <div class="gate-topline">
+                <span class="dot dot-a"></span>
+                <span class="dot dot-b"></span>
+                <span class="dot dot-c"></span>
+                <span class="topline-text">SEC://ARCHIVE-NODE</span>
+            </div>
+
+            <div class="gate-header">
+                <div class="gate-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"
+                            stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                        <path d="M9.5 11.5V9a2.5 2.5 0 0 1 5 0v2.5" stroke="currentColor" stroke-width="1.4"
+                            stroke-linecap="round" />
+                        <rect x="8" y="11.5" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.4" />
+                    </svg>
+                </div>
+                <h1>RESTRICTED ARCHIVE</h1>
+                <p class="gate-sub">// authorization required to proceed &gt;&gt; enter access key below</p>
+            </div>
+
+            <form id="gate-form" class="gate-form" autocomplete="off" novalidate>
+                <label for="password" class="gate-label">ACCESS&nbsp;KEY</label>
+                <div class="gate-input-row">
+                    <span class="prompt-caret">&gt;</span>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required
+                        autofocus />
+                </div>
+                <button type="submit" class="gate-submit">
+                    <span>DECRYPT &amp; ENTER</span>
+                </button>
+                <p id="gate-error" class="gate-error" role="alert" hidden>ACCESS DENIED — incorrect key. Try again.</p>
+            </form>
+
+            <div class="gate-footer">
+                <span id="clock" class="gate-clock">--:--:--</span>
+                <span class="gate-status">STATUS: <em>AWAITING INPUT</em></span>
+            </div>
+        </div>
+        <p class="gate-hint">This node is archived and access-controlled. Sessions expire after 3 hours or when this
+            tab is closed.</p>
+    </main>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var AUTH_KEY = "archAuth";
+
+            function getRedirectTarget() {
+                var params = new URLSearchParams(location.search);
+                var target = params.get("redirect");
+                if (!target) return "index.html";
+                try {
+                    var url = new URL(target, location.href);
+                    // Only ever redirect back within this same origin.
+                    if (url.origin !== location.origin) return "index.html";
+                    return url.href;
+                } catch (e) {
+                    return "index.html";
+                }
+            }
+
+            async function sha256Hex(text) {
+                var buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+                return Array.prototype.map
+                    .call(new Uint8Array(buf), function (b) { return b.toString(16).padStart(2, "0"); })
+                    .join("");
+            }
+
+            var form = document.getElementById("gate-form");
+            var input = document.getElementById("password");
+            var errorMsg = document.getElementById("gate-error");
+            var card = document.querySelector(".gate-card");
+
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                var value = input.value;
+                var hash = await sha256Hex(value);
+
+                if (window.ARCH_PASSWORD_HASH && hash === window.ARCH_PASSWORD_HASH) {
+                    sessionStorage.setItem(AUTH_KEY, JSON.stringify({ ts: Date.now() }));
+                    location.replace(getRedirectTarget());
+                } else {
+                    errorMsg.hidden = false;
+                    card.classList.remove("shake");
+                    // Force reflow so the shake animation can retrigger.
+                    void card.offsetWidth;
+                    card.classList.add("shake");
+                    input.value = "";
+                    input.focus();
+                }
+            });
+
+            var clockEl = document.getElementById("clock");
+            function tick() {
+                clockEl.textContent = new Date().toLocaleTimeString("en-GB", { hour12: false });
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,450 @@
+/* Student Deal Page Specific Styles */
+
+/* Student Hero Section */
+.student-hero {
+    padding: 8vh 2rem 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Student Badge */
+.student-badge {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.badge-text {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-glow);
+    animation: pulse-glow 3s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-glow); }
+    50% { box-shadow: 0 0 30px rgba(0, 102, 255, 0.5); }
+}
+
+/* Student Header */
+.student-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.student-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.student-subtitle {
+    font-size: 1.3rem;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Pitch Section */
+.student-pitch {
+    display: grid;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.pitch-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.pitch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+    border-color: var(--primary-blue);
+}
+
+.pitch-title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.pitch-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.pitch-content p:last-child {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Pricing Overview */
+.pricing-overview {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-medium);
+}
+
+.pricing-title {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.pricing-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s var(--ease-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-smooth);
+}
+
+.pricing-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-blue);
+}
+
+.pricing-card:hover::before {
+    opacity: 1;
+}
+
+.pricing-card.premium {
+    border-color: var(--accent-purple);
+}
+
+.pricing-card.premium::before {
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+}
+
+.pricing-header h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-desc {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-features {
+    margin-bottom: 1.5rem;
+}
+
+.pricing-features ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.pricing-features li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.pricing-card.premium .pricing-features li::before {
+    color: var(--accent-purple);
+}
+
+.pricing-note {
+    text-align: center;
+}
+
+.pricing-fee {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-free {
+    color: var(--accent-cyan);
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.pricing-card.premium .pricing-fee {
+    color: var(--accent-purple);
+}
+
+/* Hosting Information */
+.hosting-info {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.hosting-title {
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.hosting-details p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.changes-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.basic-changes,
+.premium-changes {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 10px;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.basic-changes strong {
+    color: var(--primary-blue);
+}
+
+.premium-changes strong {
+    color: var(--accent-purple);
+}
+
+.pricing-info {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.pricing-info strong {
+    color: var(--accent-cyan);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--border-primary);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 2rem;
+}
+
+.cta-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s var(--ease-smooth);
+    margin-bottom: 1rem;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
+}
+
+.btn-contact .btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-contact:hover .btn-glow {
+    left: 100%;
+}
+
+.email-note {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Back Link */
+.back-link {
+    text-align: center;
+}
+
+.back-btn {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s var(--ease-smooth);
+}
+
+.back-btn:hover {
+    color: var(--primary-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .student-hero {
+        padding: 6vh 1rem 3rem;
+    }
+    
+    .student-title {
+        font-size: 2rem;
+    }
+    
+    .student-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .pitch-card,
+    .pricing-overview,
+    .cta-section {
+        padding: 1.5rem;
+    }
+    
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .student-title {
+        font-size: 1.7rem;
+    }
+    
+    .student-subtitle {
+        font-size: 1rem;
+    }
+    
+    .pitch-card,
+    .pricing-overview,
+    .cta-section {
+        padding: 1.2rem;
+    }
+    
+    .badge-text {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* Additional animations */
+.student-content > * {
+    animation: fadeInUp 0.8s var(--ease-smooth);
+    animation-fill-mode: both;
+}
+
+.student-content > *:nth-child(1) { animation-delay: 0.1s; }
+.student-content > *:nth-child(2) { animation-delay: 0.2s; }
+.student-content > *:nth-child(3) { animation-delay: 0.3s; }
+.student-content > *:nth-child(4) { animation-delay: 0.4s; }
+.student-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

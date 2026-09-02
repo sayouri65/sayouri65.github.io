@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../../guard.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maleka DEV - Oferta Studencka | Student Web Development</title>
+    <meta name="description"
+        content="Specjalna oferta dla studentów i uczniów - profesjonalne strony internetowe w przystępnej cenie. Modernistyczne, responsywne strony dla młodych przedsiębiorców.">
+    <meta name="keywords" content="student offer, web developer, cheap website, startup, student budget, web development">
+    <link rel="icon" type="image/png" href="../media/malekadev_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="student-style.css">
+</head>
+
+<body>
+    <!-- Animated background elements -->
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="floating-particles"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="profile-img" id="profileImg">
+                    <img src="../media/malekadev_icon.png" alt="Maleka DEV Profile" class="profile-image">
+                </div>
+                <div class="brand-info">
+                    <h1 class="brand-name" onclick="goHome()">
+                        <span class="brand-text">Maleka</span>
+                        <span class="brand-accent">DEV</span>
+                    </h1>
+                    <div class="title-info">
+                        <span class="title-suffix" id="titleBy">autor: </span>
+                        <span class="title-brand">Someone</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language switcher -->
+            <div class="language-switcher" id="langSwitcher">
+                <button class="lang-btn" id="langEn" data-lang="en">EN</button>
+                <button class="lang-btn" id="langCs" data-lang="cs">CS</button>
+                <button class="lang-btn active" id="langPl" data-lang="pl">PL</button>
+                <div id="langInfo" class="lang-info" style="display:none;" aria-live="polite"></div>
+            </div>
+        </div>
+
+        <p id="archivedNotice" class="logo-request">Przeglądasz zarchiwizowaną wersję tej strony internetowej.</p>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-container" id="mainContainer">
+        <!-- Hero section -->
+        <section class="hero-section student-hero" id="heroSection">
+            <div class="student-content">
+                <div class="student-badge">
+                    <span class="badge-text" id="badgeText">💡 Oferta Studencka</span>
+                </div>
+                
+                <div class="student-header">
+                    <h2 class="student-title" id="studentTitle">
+                        Kończysz szkołę średnią? Masz pomysł na swój projekt bądź startup?
+                    </h2>
+                    <p class="student-subtitle" id="studentSubtitle">
+                        Musisz mieć swoją stronę internetową, jeśli nie jesteś online, to tak jakby cię nie było
+                    </p>
+                </div>
+
+                <div class="student-pitch">
+                    <div class="pitch-card">
+                        <h3 class="pitch-title" id="pitchTitle">Dlaczego właśnie ja?</h3>
+                        <div class="pitch-content">
+                            <p id="pitchDescription">
+                                Nie jestem wielką firmą - jestem tylko ja sam, <strong>Someone</strong>, nastolatek taki jak ty. 
+                                Zrobię dla ciebie modernistyczną stronę na miarę twoich potrzeb tylko za pomocą opisu bądź projektu. 
+                                Będzie działać na komputerach i telefonach, będzie czytelna, prosta i profesjonalna.
+                            </p>
+                            <p id="pitchMission">
+                                Jeśli masz pomysł, pomogę ci pokazać go światu! 🌟
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pricing-overview">
+                        <h3 class="pricing-title" id="pricingTitle">Cennik dostosowany do studenta</h3>
+                        <div class="pricing-cards">
+                            <div class="pricing-card basic">
+                                <div class="pricing-header">
+                                    <h4 id="basicTitle">Podstawowy</h4>
+                                    <p class="pricing-desc" id="basicDesc">Idealna na początek</p>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul id="basicFeatures">
+                                        <li>HTML, CSS & JavaScript</li>
+                                        <li>Darmowy certyfikat SSL</li>
+                                        <li>Do 5GB przestrzeni</li>
+                                        <li>Do 20 subdomen</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-note">
+                                    <div class="pricing-fee" id="basicNote">Wycena za 20 PLN</div>
+                                    <div class="pricing-free" id="basicFree">Z ważną legitymacją ISIC/ELS za darmo</div>
+                                </div>
+                            </div>
+                            <div class="pricing-card premium">
+                                <div class="pricing-header">
+                                    <h4 id="premiumTitle">Rozszerzony</h4>
+                                    <p class="pricing-desc" id="premiumDesc">Dla większych projektów</p>
+                                </div>
+                                <div class="pricing-features">
+                                    <ul id="premiumFeatures">
+                                        <li>Wszystko z planu podstawowego +</li>
+                                        <li>PHP 7.4 i 8.0</li>
+                                        <li>MySQL, SFTP i SSH</li>
+                                        <li>Do 20GB przestrzeni</li>
+                                        <li>Do 50 subdomen</li>
+                                        <li>Darmowe konto email w domenie</li>
+                                        <li>Konfiguracja Cloudflare (darmowy plan)</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-note">
+                                    <div class="pricing-fee" id="premiumNote">Wycena za 20 PLN</div>
+                                    <div class="pricing-free" id="premiumFree">Z ważną legitymacją ISIC/ELS za darmo</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pricing-info" id="pricingInfo">
+                            <strong>Niska marża + przystosowana do studenckiego budżetu</strong><br>
+                            Wycena zawsze na miarę twoich potrzeb i możliwości finansowych
+                        </p>
+                        
+                        <div class="hosting-info">
+                            <h4 class="hosting-title" id="hostingTitle">Informacje o kosztach utrzymania</h4>
+                            <div class="hosting-details">
+                                <p id="hostingDescription">
+                                    Opłata za utrzymanie strony online jest rozliczana każdorazowo za rok z góry. 
+                                    Stworzenie strony to jednorazowa część opłaty wliczona w pierwszy rok kosztów utrzymania.
+                                </p>
+                                <div class="changes-info">
+                                    <div class="basic-changes" id="basicChanges">
+                                        <strong>Plan Podstawowy:</strong> Zmiany na stronie - mała symboliczna opłata jednorazowa
+                                    </div>
+                                    <div class="premium-changes" id="premiumChanges">
+                                        <strong>Plan Rozszerzony:</strong> Mniejsze zmiany/aktualizacje darmowe
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-title" id="ctaTitle">Zainteresowany?</h3>
+                        <p class="cta-description" id="ctaDescription">
+                            Napisz na email i opowiedz mi o swoim projekcie!
+                        </p>
+                        <a href="mailto:hello@maleka.dev?subject=Zapytanie%20o%20ofert%C4%99%20studeck%C4%85" 
+                           class="btn btn-primary btn-contact" id="contactButton">
+                            <span class="btn-text" id="contactButtonText">hello@maleka.dev</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <p class="email-note" id="emailNote">
+                            Temat wiadomości: "Zapytanie o ofertę studencką"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="back-link">
+                    <a href="../" class="back-btn" id="backButton">
+                        ← Powrót do głównej strony
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="student-script.js"></script>
+</body>
+
+</html>

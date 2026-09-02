@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="../guard.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maleka DEV - Professional Web Developer & IT Specialist</title>
+    <meta name="description"
+        content="Someone - Junior Web Developer & IT Administrator. Professional web development, IT support, and freelance services.">
+    <meta name="keywords" content="web developer, IT administrator, freelancer, web development, IT support">
+    <link rel="icon" type="image/png" href="media/malekadev_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background elements -->
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="floating-particles"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="profile-img" id="profileImg">
+                    <img src="media/malekadev_icon.png" alt="Maleka DEV Profile" class="profile-image">
+                </div>
+                <div class="brand-info">
+                    <h1 class="brand-name" onclick="reload()">
+                        <span class="brand-text">Maleka</span>
+                        <span class="brand-accent">DEV</span>
+                    </h1>
+                    <div class="title-info">
+                        <span class="title-suffix" id="titleBy">by </span>
+                        <span class="title-brand">Someone</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Language switcher -->
+            <div class="language-switcher" id="langSwitcher">
+                <button class="lang-btn active" id="langEn" data-lang="en">EN</button>
+                <button class="lang-btn" id="langCs" data-lang="cs">CS</button>
+                <button class="lang-btn" id="langPl" data-lang="pl">PL</button>
+                <div id="langInfo" class="lang-info" style="display:none;" aria-live="polite"></div>
+            </div>
+        </div>
+
+        <p id="logoRequest" class="logo-request">
+            You're viewing an archived version of this website.
+        </p>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-container" id="mainContainer">
+        <!-- Hero section -->
+        <section class="hero-section" id="heroSection">
+            <div class="hero-content">
+                <div class="profile-showcase">
+                    <div class="profile-img-large" id="imgMainProfile">
+                        <img src="media/malekadev_icon.png" alt="Someone Profile" class="main-profile-image">
+                    </div>
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span class="status-text">Available for work</span>
+                    </div>
+                </div>
+
+                <div class="hero-text">
+                    <h2 class="job-title">
+                        <span id="jobTitle" class="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </h2>
+
+                    <p class="hero-description" id="heroDescription">
+                        Passionate developer crafting digital experiences with clean code and innovative solutions.
+                        Specialized in web development, IT infrastructure, and creating seamless user experiences.
+                    </p>
+
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showSection('aboutMe')" id="aboutMeButton">
+                            <span class="btn-text">About me</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                        <button class="btn btn-secondary" onclick="showSection('contact')" id="contactButton">
+                            <span class="btn-text">Get in touch</span>
+                        </button>
+                        <button class="btn btn-accent" onclick="siteNavigate('student-deal/')" id="studentOfferButton">
+                            <span class="btn-text">Student Offer</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation pills -->
+            <nav class="nav-pills">
+                <button class="nav-pill" onclick="showSection('aboutMe')" id="aboutMePill">
+                    <i class="pill-icon">👋</i>
+                    <span class="pill-text" id="aboutMeNavText">About</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('projects')" id="projectsPill">
+                    <i class="pill-icon">🚀</i>
+                    <span class="pill-text" id="projectsNavText">Projects</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('contact')" id="contactPill">
+                    <i class="pill-icon">📧</i>
+                    <span class="pill-text" id="contactNavText">Contact</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('hireme')" id="hiremePill">
+                    <i class="pill-icon">💼</i>
+                    <span class="pill-text" id="hiremeNavText">Hire me</span>
+                </button>
+            </nav>
+        </section>
+
+        <!-- Content sections -->
+        <div class="content-sections" id="contentSections">
+            <!-- Content Navigation Pills -->
+            <nav class="content-nav-pills" id="contentNavPills" style="display: none;">
+                <button class="nav-pill" onclick="showSection('aboutMe')" id="contentAboutMePill">
+                    <i class="pill-icon">👋</i>
+                    <span class="pill-text">About</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('projects')" id="contentProjectsPill">
+                    <i class="pill-icon">🚀</i>
+                    <span class="pill-text">Projects</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('contact')" id="contentContactPill">
+                    <i class="pill-icon">📧</i>
+                    <span class="pill-text">Contact</span>
+                </button>
+                <button class="nav-pill" onclick="showSection('hireme')" id="contentHiremePill">
+                    <i class="pill-icon">💼</i>
+                    <span class="pill-text">Hire me</span>
+                </button>
+                <button class="nav-pill nav-pill-home" onclick="reload()">
+                    <i class="pill-icon">🏠</i>
+                    <span class="pill-text">Home</span>
+                </button>
+            </nav>
+
+            <!-- About Me Section -->
+            <section class="content-section" id="aboutMeSection" style="display: none;">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title" id="aboutMeTitle">Hi, I'm <span class="highlight">Someone</span> 👋
+                        </h2>
+                        <div class="section-underline"></div>
+                    </div>
+
+                    <div class="about-content">
+                        <div class="about-text">
+                            <div class="about-paragraph" id="aboutMeP1">
+                                <p>I'm a tech enthusiast with a strong background in web development, design, and IT
+                                    solutions. My programming journey began at the age of 12, starting with Scratch
+                                    during school IT classes, and has since grown into a deep passion for creating and
+                                    managing websites, web applications, and databases. In 2022, I successfully passed
+                                    the <strong>INF.03</strong> professional qualification
+                                    exams, further solidifying my technical skills.</p>
+                            </div>
+
+                            <div class="about-paragraph" id="aboutMeP2">
+                                <p>Since November 2024, I have been part of the <a href="https://rybizak.cz"
+                                        target="_blank" class="link-highlight">Rybízák</a> team as a sales stand
+                                    operator, where I take care of customers, handle transactions, prepare documentation
+                                    for stock replenishment, and ensure smooth daily operations. Alongside this, I work
+                                    at <a href="https://globus.cz" target="_blank" class="link-highlight">Globus</a> as
+                                    a cashier, operating both staffed and self-service checkouts, assisting customers,
+                                    managing store opening and closing procedures, and training new colleagues when
+                                    needed.</p>
+                            </div>
+
+                            <div class="about-paragraph" id="aboutMeP3">
+                                <p>Outside my formal roles, I frequently help friends and neighbors with small
+                                    tech-related tasks — whether it's reinstalling Windows, setting up applications,
+                                    configuring security cameras, or troubleshooting everyday PC issues. These
+                                    experiences have sharpened my problem-solving abilities and taught me the value of
+                                    clear communication with both technical and non-technical users.</p>
+                            </div>
+
+                            <div class="about-paragraph" id="aboutMeP4">
+                                <p>I am fluent in Polish (native) and communicate effectively in English and Czech at an
+                                    upper-intermediate level (ILR scale 3–4). When I'm not coding or working, I enjoy
+                                    gaming, running my online community, exploring new technologies, and spending time
+                                    with friends.</p>
+                            </div>
+                        </div>
+
+                        <div class="skills-sidebar">
+                            <div class="skills-showcase">
+                                <h3 class="skills-title">Tech Stack</h3>
+                                <div class="skills-grid">
+                                    <div class="skill-item">
+                                        <span class="skill-name">HTML/CSS</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-level="90"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">JavaScript</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-level="75"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">Database Management</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-level="80"></div>
+                                        </div>
+                                    </div>
+                                    <div class="skill-item">
+                                        <span class="skill-name">IT Support</span>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" data-level="95"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="section-footer" id="aboutMeFooter">
+                        <p class="footer-text">That's me in a nutshell. Thanks for stopping by 💙</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="content-section" id="projectsSection" style="display: none;">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title" id="projectsTitle">My projects?</h2>
+                        <div class="section-underline"></div>
+                        <p class="section-subtitle" id="projectsIntro">While I'm still growing as a developer, I have
+                            several projects I'm proud of and would like to share.</p>
+                    </div>
+
+                    <div class="projects-grid">
+                        <div class="project-card nns-project">
+                            <div class="project-header">
+                                <h3 class="project-title" style="color: var(--nns)">NoName Squad</h3>
+                                <div class="project-links">
+                                    <a href="https://discord.nnamesquad.top" target="_blank" class="project-link"
+                                        style="color: var(--nns)">Discord</a>
+                                    <a href="https://nnamesquad.top" target="_blank" class="project-link"
+                                        style="color: var(--nns)">Website</a>
+                                </div>
+                            </div>
+                            <div class="project-description" id="nnsDesc">
+                                <p>NoName Squad is a <a href="https://discord.nnamesquad.top" target="_blank"
+                                        style="color: var(--nns);">Discord</a> community I founded in 2019. Over the
+                                    years, it has grown to nearly 50 active members, with its invite link used more
+                                    than 1,000 times. I also developed its dedicated <a href="https://nnamesquad.top"
+                                        target="_blank" style="color: var(--nns);">website</a>, which serves as a hub
+                                    for members to connect and stay updated.</p>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Members</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">1,000+</span>
+                                    <span class="stat-label">Invites Used</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card flagbar-project">
+                            <div class="project-header">
+                                <h3 class="project-title" style="color: var(--flagbar)">FlagBar</h3>
+                                <div class="project-links">
+                                    <a href="https://flagbar.nnamesquad.top" target="_blank" class="project-link"
+                                        style="color: var(--flagbar)">Website</a>
+                                </div>
+                            </div>
+                            <div class="project-description" id="flagbarDesc">
+                                <p>FlagBar is a browser extension that adds the colors of various LGBTQ+ flags to
+                                    YouTube for a personalized, visually appealing experience. I created it initially as
+                                    a fun project inspired by a friend in the LGBTQ+ community, and soon realized it
+                                    could be enjoyed by everyone. You can learn more and try it at <a
+                                        href="https://flagbar.nnamesquad.top" target="_blank"
+                                        style="color: var(--flagbar);">flagbar.nnamesquad.top</a>.</p>
+                            </div>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="stat-number">★ 5</span>
+                                    <span class="stat-label">Rating</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">80+</span>
+                                    <span class="stat-label">Active users</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Installs</span>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Browser Extension</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-footer">
+                        <div class="footer-content">
+                            <p class="footer-text" id="projectsFooterText">
+                                <strong>Perhaps more in the future..</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="content-section" id="contactSection" style="display: none;">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title" id="contactTitle">Contact</h2>
+                        <div class="section-underline"></div>
+                    </div>
+
+                    <div class="contact-content">
+                        <div class="contact-main">
+                            <div class="contact-card">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-info">
+                                    <h3>Email</h3>
+                                    <p id="contactMsg">This website is archived, so contacting me at contact@maleka.dev
+                                        is no longer possible.</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">💬</div>
+                                <div class="contact-info">
+                                    <h3>Response Time</h3>
+                                    <p id="contactFooter">This contact information is no longer monitored.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-social">
+                            <h3>Find me online</h3>
+                            <div class="social-links">
+                                <a href="https://discord.nnamesquad.top" target="_blank" class="social-link discord">
+                                    <span class="social-icon">💬</span>
+                                    <span class="social-text">Discord</span>
+                                </a>
+                                <a href="https://github.com/czogista" target="_blank" class="social-link github">
+                                    <span class="social-icon">⚡</span>
+                                    <span class="social-text">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hire Me Section -->
+            <section class="content-section" id="hiremeSection" style="display: none;">
+                <div class="section-container">
+                    <div class="section-header">
+                        <h2 class="section-title" id="hiremeTitle">Small Tech Jobs & Web Projects</h2>
+                        <div class="section-underline"></div>
+                    </div>
+
+                    <div class="hire-content">
+                        <div class="hire-text">
+                            <div class="hire-paragraph" id="hiremeP1">
+                                <p>I am available for a wide range of tech-related work, from website and web app
+                                    development to database setup, IT equipment installation, and general PC support.
+                                    Whether you need help troubleshooting an issue, setting up a system, or building a
+                                    new online presence, I provide reliable, personalized assistance tailored to your
+                                    needs.</p>
+                            </div>
+
+                            <div class="hire-paragraph" id="hiremeP2">
+                                <p>I hold a professional qualification in <strong>INF.03</strong> (Creating and administering websites, web applications, and databases),
+                                    passed in 2022. This certification ensures that my work meets recognized
+                                    professional standards, whether for personal projects or professional engagements.
+                                </p>
+                            </div>
+
+                            <div class="hire-paragraph" id="hiremeP3">
+                                <p>My services include developing and managing websites, installing and configuring
+                                    software, setting up networks or security devices, and providing general IT support.
+                                    If you have a project in mind or a tech issue that needs solving, please get in
+                                    touch via the <span class="highlight">"Contact"</span> tab, and I will respond
+                                    promptly.</p>
+                            </div>
+                        </div>
+
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <div class="service-icon">🌐</div>
+                                <h4>Web Development</h4>
+                                <p>Custom websites and web applications built with modern technologies</p>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-icon">🗄️</div>
+                                <h4>Database Management</h4>
+                                <p>Database design, setup, and optimization for your business needs</p>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-icon">💻</div>
+                                <h4>IT Support</h4>
+                                <p>Comprehensive IT assistance from setup to troubleshooting</p>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-icon">🔧</div>
+                                <h4>System Configuration</h4>
+                                <p>Network setup, security configuration, and software installation</p>
+                            </div>
+                        </div>
+
+                        <div class="qualifications">
+                            <h3>Professional Qualifications</h3>
+                            <div class="qual-badges">
+                                <div class="qual-badge">
+                                    <span class="qual-code">INF.03</span>
+                                    <span class="qual-desc">Creating and administering websites, web applications, and databases</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

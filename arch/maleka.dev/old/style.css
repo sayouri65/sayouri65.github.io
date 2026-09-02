@@ -1,0 +1,300 @@
+* {
+  user-select: none;
+}
+
+:root {
+  --nns: #fcfc2b;
+  --flagbar: #d46bba;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at center, #040C1C, #000);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+}
+
+#maleka {
+  color: #00a9fe !important
+}
+
+.profile-img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: url('media/malekadev_icon.png') center/cover no-repeat;
+  box-shadow: 0 0 20px rgba(20, 5, 20, 0.2);
+}
+
+.title-brand {
+
+  font-weight: bold;
+}
+
+.title-suffix {
+  font-weight: normal;
+  color: #888;
+  /* or a lighter shade to de-emphasize */
+}
+
+.dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffc107 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.info {
+  max-width: 400px;
+}
+
+h1 {
+  margin: 0;
+  color: #0d44ff;
+}
+
+.title {
+  margin-top: 0.25em;
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.language-switcher {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 2px solid #ccc;
+  color: #ccc;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.lang-btn:hover {
+  border-color: #0d6efd;
+  color: #0d6efd;
+}
+
+.lang-btn.active {
+  background: #0d6efd;
+  border-color: #0d6efd;
+  color: white;
+}
+
+.lang-btn.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.lang-btn.locked:hover {
+  border-color: #ccc;
+  color: #ccc;
+}
+
+.lang-info {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 10px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  color: #ddd;
+  margin-top: 4px;
+  max-width: 180px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 60;
+}
+
+
+.btn {
+  padding: 12px 28px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#hiremeButton {
+  animation: hmb-glow 2s infinite alternate;
+}
+
+#hiremeButton::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: rotate(45deg);
+  animation: hmb-shine 2s infinite linear;
+}
+
+@keyframes hmb-shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes hmb-glow {
+  0% {
+    box-shadow: 0 0 10px #0d6efd, 0 0 20px #0d6efd;
+  }
+
+  100% {
+    box-shadow: 0 0 20px var(--nns), 0 0 30px var(--nns);
+  }
+}
+
+.info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #125FF8;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .info {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .info h1 {
+    font-size: 2.2rem;
+    margin: 0.5rem 0;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.05rem;
+    color: #ccc;
+    padding: 0 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .language-switcher {
+    justify-content: center;
+    margin: 0.5rem 0 0.25rem;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  #i-lookingforlogo {
+    font-size: 0.9rem;
+    font-weight: lighter;
+    color: tomato;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 0.5rem;
+  }
+
+  #hiremeButton {
+    animation: hmb-glow 1.8s infinite alternate;
+  }
+
+  .dots {
+    background-size: 12px 12px;
+    opacity: 0.06;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+}

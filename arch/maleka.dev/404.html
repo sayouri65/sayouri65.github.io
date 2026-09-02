@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../guard.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Maleka DEV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="no-scroll">
+    <!-- Background Elements -->
+    <div class="floating-particles"></div>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- 404 Content -->
+    <main class="main-404">
+        <div class="container">
+            <div class="error-content">
+                <div class="error-visual">
+                    <div class="error-code">
+                        <span class="error-number typing-text">404</span>
+                    </div>
+                    <div class="error-glitch">
+                        <span class="glitch-text" data-text="ERROR">ERROR</span>
+                    </div>
+                </div>
+                
+                <div class="error-message">
+                    <h1 class="error-title">Page Not Found</h1>
+                    <p class="error-description">
+                        The page you're looking for seems to have drifted away into the digital void. 
+                        Don't worry, even the best navigators get lost in cyberspace sometimes.
+                    </p>
+                </div>
+
+                <div class="error-actions">
+                    <a href="index.html" class="btn btn-primary">
+                        <span class="btn-text">Return Home</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <button onclick="goBack()" class="btn btn-secondary">
+                        Go Back
+                    </button>
+                </div>
+
+                <div class="error-suggestions">
+                    <h3>What can you do?</h3>
+                    <ul class="suggestion-list">
+                        <li>Check the URL for typos</li>
+                        <li>Visit my <a href="index.html#about">portfolio</a> to see my work</li>
+                        <li>Get in <a href="index.html#contact">contact</a> if you need help</li>
+                        <li>Explore my <a href="index.html#projects">projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script -->
+    <script>
+        // Initialize the galaxy background
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particle effects
+            if (typeof initializeParticleEffects === 'function') {
+                initializeParticleEffects();
+            } else {
+                // Fallback particle initialization
+                createBasicParticles();
+            }
+            
+            // Initialize typing animation for 404
+            initErrorAnimation();
+        });
+
+        function createBasicParticles() {
+            const container = document.querySelector('.floating-particles');
+            if (!container) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-dot';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(0, 212, 255, 0.6);
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: float ${10 + Math.random() * 10}s infinite linear;
+                    animation-delay: ${Math.random() * 5}s;
+                `;
+                container.appendChild(particle);
+            }
+        }
+
+        function initErrorAnimation() {
+            const errorNumber = document.querySelector('.error-number');
+            if (!errorNumber) return;
+            
+            const text = '404';
+            let index = 0;
+            
+            errorNumber.textContent = '';
+            
+            function typeChar() {
+                if (index < text.length) {
+                    errorNumber.textContent += text[index];
+                    index++;
+                    setTimeout(typeChar, 300);
+                } else {
+                    errorNumber.style.borderRight = 'none';
+                }
+            }
+            
+            setTimeout(typeChar, 500);
+        }
+
+        function goBack() {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+
+    <!-- Load main script if available -->
+    <script src="script.js" onerror="console.log('Main script not loaded')"></script>
+</body>
+</html>
