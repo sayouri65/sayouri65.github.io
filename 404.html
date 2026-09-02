@@ -41,11 +41,15 @@
                 <span class="tree small">🌲</span>
                 <span class="tree">🌲</span>
             </div>
-            <p class="eyebrow">Path not found</p>
+            <p class="eyebrow" id="eyebrow">Path not found</p>
             <h1>404</h1>
-            <p class="lead">
+            <p class="lead" id="lead-default">
                 Looks like you wandered off the trail into the trees. Whatever you were looking for at
                 <code id="lost-path">this path</code> doesn't exist here, no matter how many folders deep you go.
+            </p>
+            <p class="lead" id="lead-intentional" hidden>
+                Oh, hi! Visiting <code>404 page</code> on purpose, huh? Sometimes you just want to get lost in the
+                woods for a bit. No judgment here, take a seat on a mossy rock and enjoy the trees. 🌲
             </p>
             <div class="hero-actions">
                 <a class="button primary" href="/">🏠 Back to safety</a>
@@ -64,6 +68,13 @@
         document.getElementById("year").textContent = new Date().getFullYear();
         var path = window.location.pathname;
         document.getElementById("lost-path").textContent = path.length > 1 ? path : "this path";
+
+        var visitedOnPurpose = /^\/404(\.html)?\/?$/.test(path);
+        if (visitedOnPurpose) {
+            document.getElementById("eyebrow").textContent = "Wanderer detected";
+            document.getElementById("lead-default").hidden = true;
+            document.getElementById("lead-intentional").hidden = false;
+        }
     </script>
 </body>
 

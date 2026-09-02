@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 .not-found {
     text-align: center;
     overflow: hidden;
@@ -27,11 +31,13 @@
 
 .forest {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
-    gap: clamp(6px, 2vw, 18px);
-    font-size: clamp(1.8rem, 6vw, 3rem);
+    gap: clamp(4px, 1.5vw, 18px);
+    font-size: clamp(1.4rem, 6vw, 3rem);
     margin-bottom: 6px;
+    max-width: 100%;
     filter: drop-shadow(0 10px 16px rgba(5, 5, 16, 0.4));
 }
 
