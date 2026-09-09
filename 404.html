@@ -66,6 +66,18 @@
     </footer>
 
     <script>
+        // Legacy/renamed paths that should silently redirect instead of showing 404
+        var redirectMap = {
+            "/nns/flagbar": "/flagbar/",
+            "/nns/flagbar/": "/flagbar/",
+            "/nns/flagbar/index.html": "/flagbar/"
+        };
+        var normalizedPath = window.location.pathname.toLowerCase();
+        var redirectTarget = redirectMap[normalizedPath];
+        if (redirectTarget) {
+            window.location.replace(redirectTarget);
+        } else {
+
         document.getElementById("year").textContent = new Date().getFullYear();
         var path = window.location.pathname;
         document.getElementById("lost-path").textContent = path.length > 1 ? path : "this path";
@@ -75,6 +87,7 @@
             document.getElementById("eyebrow").textContent = "Wanderer detected";
             document.getElementById("lead-default").hidden = true;
             document.getElementById("lead-intentional").hidden = false;
+        }
         }
     </script>
 </body>
