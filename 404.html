@@ -78,16 +78,16 @@
             window.location.replace(redirectTarget);
         } else {
 
-        document.getElementById("year").textContent = new Date().getFullYear();
-        var path = window.location.pathname;
-        document.getElementById("lost-path").textContent = path.length > 1 ? path : "this path";
+            document.getElementById("year").textContent = new Date().getFullYear();
+            var path = window.location.pathname;
+            document.getElementById("lost-path").textContent = path.length > 1 ? path : "this path";
 
-        var visitedOnPurpose = /^\/404(\.html)?\/?$/.test(path);
-        if (visitedOnPurpose) {
-            document.getElementById("eyebrow").textContent = "Wanderer detected";
-            document.getElementById("lead-default").hidden = true;
-            document.getElementById("lead-intentional").hidden = false;
-        }
+            var visitedOnPurpose = /^\/404(\.html)?\/?$/.test(path);
+            if (visitedOnPurpose) {
+                document.getElementById("eyebrow").textContent = "Wanderer detected";
+                document.getElementById("lead-default").hidden = true;
+                document.getElementById("lead-intentional").hidden = false;
+            }
         }
     </script>
 </body>

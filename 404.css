@@ -74,9 +74,12 @@ body {
 }
 
 @keyframes sway {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(-3deg);
     }
+
     50% {
         transform: rotate(3deg);
     }

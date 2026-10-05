@@ -40,26 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const costNode = document.getElementById("hrt-cost");
-    if (costNode) {
-        const totalCostRaw = costNode.getAttribute("data-allcost");
-        const totalCost = totalCostRaw ? Number(totalCostRaw) : Number.NaN;
-        const currency = costNode.getAttribute("data-currency") || "CZK";
-
-        if (Number.isFinite(totalCost) && totalCost >= 0) {
-            const roundedCost = currency === "CZK"
-                ? Math.round(totalCost / 10) * 10
-                : totalCost;
-            const formattedCost = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency,
-                maximumFractionDigits: 0
-            }).format(roundedCost);
-
-            costNode.textContent = formattedCost;
-        }
-    }
-
     const supportersList = document.querySelector(".supporters-list");
     if (supportersList) {
         const supportersSort = document.getElementById("supporters-sort");
